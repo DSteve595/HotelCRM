@@ -13,7 +13,12 @@ class CreateHotelAgentsTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('hotel_agents', function (Blueprint $table) {
+            $table->integer('user_id')->unique();
+            $table->integer('hotel_id');
+            $table->string('is_admin');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class CreateHotelAgentsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('hotel_agents');
     }
 }

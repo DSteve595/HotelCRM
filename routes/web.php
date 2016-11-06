@@ -13,3 +13,12 @@
 
 // Welcome page for hotel employees and owners to see
 Route::get('/', 'HotelAgentController@index');
+
+// Verify a new user
+Route::post('verify-new-user', 'WelcomeController@verifyNewUser');
+
+// Sign up a new user
+Route::post('sign-up', 'HotelAgentController@signUp');
+
+// Sign up complete
+Route::get('sign-up-complete', 'HotelAgentController@signUpComplete');
