@@ -1,0 +1,22 @@
+.parallaxBg {
+    height: 500px;
+}
+
+.content-home {
+    padding: 0;
+}
+
+.content-middle {
+    padding-top: 0;
+}
+.some-padding {
+    padding: 10px 50px 0 50px !important;
+}
+.breadcrumbs {
+    margin-bottom: 15px !important;
+    padding: 0;
+    height: 50px;
+}
+.margin-top-5 {
+    margin-top: 5px;
+}

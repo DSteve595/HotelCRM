@@ -8,11 +8,12 @@ class HotelAgentController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('auth')
+            ->except('index');
     }
 
     public function index()
     {
-        return view('hotel-agent-portal.index');
+        return view('hotel-portal.index');
     }
 }

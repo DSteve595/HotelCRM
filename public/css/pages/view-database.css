@@ -1,0 +1,12 @@
+.leadsTable tbody tr:hover {
+    background-color: #edf9f1;
+    -webkit-transition: background-color 0.4s; /* Safari */
+    transition: background-color 0.4s;
+    cursor: pointer;
+
+    border-left: 4px solid #73AD21 !important;
+}
+.checkbox-column {
+    background-color: #edf9f1;
+    cursor: default;
+}

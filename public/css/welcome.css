@@ -1,0 +1,8 @@
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #202020 inset !important;
+    -webkit-text-fill-color: #999 !important;
+}
+.signin-button:active {
+    background-color: #80c641;
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.05));
+}

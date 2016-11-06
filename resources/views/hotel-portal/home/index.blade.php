@@ -1,0 +1,1 @@
+@extends('hotel-portal.home.master')

@@ -1,0 +1,1 @@
+@extends('guest-portal.home.master')
