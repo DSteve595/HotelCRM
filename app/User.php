@@ -29,4 +29,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /*
+     * Relationships go below
+     */
+
+    public function hotelAgent()
+    {
+        $this->hasOne('App\HotelAgent');
+    }
 }

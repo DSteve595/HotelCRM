@@ -17,10 +17,10 @@ class VerifyHotelAgent
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user() && $request->user()->account_type === User::HOTEL_AGENT) {
-            return $next($request);
+        if (Auth::user() && $request->user()->account_type != User::HOTEL_AGENT) {
+            return redirect('');
         }
         
-        return redirect('');
+        return $next($request);
     }
 }

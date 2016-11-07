@@ -12,13 +12,27 @@
 */
 
 // Welcome page for hotel employees and owners to see
-Route::get('/', 'HotelAgentController@index');
+Route::get('/', 'WelcomeController@index');
 
 // Verify a new user
 Route::post('verify-new-user', 'WelcomeController@verifyNewUser');
 
-// Sign up a new user
-Route::post('sign-up', 'HotelAgentController@signUp');
+Route::group(['prefix' => 'sign-up'], function() {
 
-// Sign up complete
-Route::get('sign-up-complete', 'HotelAgentController@signUpComplete');
+    // Sign up a new user
+    Route::post('', 'WelcomeController@signUp');
+
+    // Sign up complete
+    Route::get('complete', 'WelcomeController@signUpComplete');
+});
+
+// Login
+Route::post('login', 'Auth\LoginController@login');
+Route::get('logout', 'Auth\LoginController@logout');
+
+Route::group(['prefix' => 'home'], function() {
+
+    // Main dashboard route: /home
+    Route::get('', 'HotelAgentController@home');
+
+});
