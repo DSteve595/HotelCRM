@@ -19,7 +19,9 @@ class CreateReservationsTable extends Migration
             $table->integer('booked_by_user_id');
             $table->date('check_in');
             $table->date('check_out');
+            $table->string('custom_reservation_number', 10);
             $table->decimal('total_price');
+            $table->integer('checked_in')->default(0);
             $table->timestamps();
         });
     }

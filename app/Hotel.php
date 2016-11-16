@@ -15,9 +15,9 @@ class Hotel extends Model
      * Relationships go below
      */
 
-    public function reservations()
+    public function hotelAgent()
     {
-        return $this->hasMany('App\Reservations')->orderBy('created_at', 'desc');
+        $this->hasMany('App\HotelAgent');
     }
     
 }

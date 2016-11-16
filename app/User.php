@@ -34,13 +34,9 @@ class User extends Authenticatable
      * Relationships go below
      */
 
+
     public function hotelAgent()
     {
-        $this->hasOne('App\HotelAgent');
-    }
-
-    public function hotelGuest()
-    {
-        $this->hasOne('App\HotelGuest');
+        return $this->hasOne('App\HotelAgent', 'user_id', 'id');
     }
 }

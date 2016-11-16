@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class HotelGuest extends Model
 {
-    protected $fillable = [
+    protected $table = 'hotel_guests';
 
+    protected $fillable = [
+        'phone_number'
     ];
 
     
@@ -15,8 +17,5 @@ class HotelGuest extends Model
      * Relationships go below
      */
 
-    public function user()
-    {
-        $this->belongsTo('App\User');
-    }
+
 }

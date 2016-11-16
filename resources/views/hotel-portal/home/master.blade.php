@@ -7,8 +7,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="hotel-assets/ico/favicon.ico">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Kite: Dashboard</title>
+    <title>HotelCRM - Home</title>
 
     <!-- CSS Plugins -->
     <link rel="stylesheet" href="hotel-assets/plugins/font-awesome/css/font-awesome.min.css">
@@ -53,45 +54,22 @@
                 </li>
                 <li class="sidebar-nav__heading">Pages</li>
                 <li class="sidebar-nav__dropdown">
-                    <a href="#"><i class="fa fa-user"></i> Account <i class="fa fa-angle-down"></i></a>
+                    <a href="#"><i class="fa fa-user"></i> Reservations <i class="fa fa-angle-down"></i></a>
                     <ul class="sidebar-nav__submenu">
-                        <li><a href="profile.html">Profile</a></li>
-                        <li><a href="edit-profile.html">Edit profile</a></li>
-                        <li><a href="inbox.html">Inbox</a></li>
-                        <li><a href="sign-in.html">Sign In</a></li>
-                        <li><a href="sign-up.html">Sign Up</a></li>
+                        <li><a href="{{ url('home/new-reservation') }}">Create new</a></li>
+                        <li><a href="{{ url('home/future-reservations') }}">Future reservations</a></li>
+                        <li><a href="{{ url('home/archived-reservations') }}">Archived</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="orders.html"><i class="fa fa-shopping-cart"></i> Orders</a>
+                    <a href="{{ url('home/account-settings') }}"><i class="fa fa-gear"></i> Account Settings</a>
+                </li>
+                <li class="sidebar-nav__heading">Hotel Management</li>
+                <li>
+                    <a href="ui_tables.html"><i class="fa fa-user-plus"></i> Manage users</a>
                 </li>
                 <li>
-                    <a href="faq.html"><i class="fa fa-support"></i> FAQ</a>
-                </li>
-                <li>
-                    <a href="contact.html"><i class="fa fa-envelope-o"></i> Contact</a>
-                </li>
-                <li class="sidebar-nav__heading">UI Elements</li>
-                <li>
-                    <a href="ui_tables.html"><i class="fa fa-table"></i> Tables</a>
-                </li>
-                <li>
-                    <a href="ui_forms.html"><i class="fa fa-check-square-o"></i> Forms</a>
-                </li>
-                <li>
-                    <a href="ui_charts.html"><i class="fa fa-bar-chart-o"></i> Charts</a>
-                </li>
-                <li class="sidebar-nav__dropdown">
-                    <a href="#"><i class="fa fa-gift"></i> Other <i class="fa fa-angle-down"></i></a>
-                    <ul class="sidebar-nav__submenu">
-                        <li><a href="ui_alerts.html">Alerts</a></li>
-                        <li><a href="ui_buttons.html">Buttons</a></li>
-                        <li><a href="ui_pagination.html">Pagination</a></li>
-                        <li><a href="ui_panels.html">Panels</a></li>
-                        <li><a href="ui_progress-bars.html">Progress Bars</a></li>
-                        <li><a href="ui_tabs.html">Tabs</a></li>
-                        <li><a href="ui_typography.html">Typography</a></li>
-                    </ul>
+                    <a href="ui_forms.html"><i class="fa fa-check-square-o"></i> Hotel Settings</a>
                 </li>
             </ul>
         </nav>
@@ -114,119 +92,20 @@
                                 <i class="fa fa-bars"></i>
                             </a>
 
-                            <form class="navbar-form navbar-left hidden-xs" role="search">
+                            <div class="navbar-form navbar-left hidden-xs" role="search">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search">
+                                    <input type="text" class="form-control" id="searchInput" placeholder="Lookup reservation">
                                     <div class="input-group-btn">
-                                        <button class="btn btn-default">
+                                        <button type="button" class="btn btn-default" id="searchReservationBtn">
                                             <i class="fa fa-search"></i>
                                         </button>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
 
                             <a href="{{ @url('/logout') }}" class="btn btn-primary navbar-btn navbar-right">
                                 Sign Out
                             </a>
-
-                            <ul class="nav navbar-nav navbar-right">
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <span class="navbar-notification"></span>
-                                        <span class="hidden-xs">Messages</span> <i class="fa fa-envelope visible-xs-inline-block"></i>
-                                    </a>
-                                    <div class="dropdown-menu navbar-messages">
-                                        <a href="#" class="navbar-messages__item">
-                                            <div class="navbar-messages__avatar">
-                                                <img src="" alt="...">
-                                            </div>
-                                            <div class="navbar-messages__body">
-                                                <h5 class="navbar-messages__sender">
-                                                    Jane Roe <small>2 hours ago</small>
-                                                </h5>
-                                                <p class="navbar-messages__content">
-                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit...
-                                                </p>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="navbar-messages__item">
-                                            <div class="navbar-messages__avatar">
-                                                <img src="" alt="...">
-                                            </div>
-                                            <div class="navbar-messages__body">
-                                                <h5 class="navbar-messages__sender">
-                                                    John Doe <small>1 day ago</small>
-                                                </h5>
-                                                <p class="navbar-messages__content">
-                                                    Reprehenderit consequatur minima non nostrum aliquid, excepturi...
-                                                </p>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="navbar-messages__item">
-                                            <div class="navbar-messages__avatar">
-                                                <img src="" alt="...">
-                                            </div>
-                                            <div class="navbar-messages__body">
-                                                <h5 class="navbar-messages__sender">
-                                                    Mary Major <small>1 day ago</small>
-                                                </h5>
-                                                <p class="navbar-messages__content">
-                                                    Ipsa quaerat labore blanditiis consequuntur, rerum minima, aut...
-                                                </p>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="navbar-messages__view-all">
-                                            View All
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <span class="navbar-notification hidden"></span>
-                                        <span class="hidden-xs">Alerts</span> <i class="fa fa-bell visible-xs-inline-block"></i>
-                                    </a>
-                                    <div class="dropdown-menu navbar-alerts">
-                                        <a href="#" class="navbar-alerts__item">
-                          <span class="label label-success">
-                            <i class="fa fa-user"></i>
-                        </span>
-                                            New user registered
-                                            <small>3 mins ago</small>
-                                        </a>
-                                        <a href="#" class="navbar-alerts__item">
-                          <span class="label label-danger">
-                            <i class="fa fa-bolt"></i>
-                          </span>
-                                            Server overloaded
-                                            <small>2 hours ago</small>
-                                        </a>
-                                        <a href="#" class="navbar-alerts__item">
-                          <span class="label label-warning">
-                            <i class="fa fa-bell-o"></i>
-                          </span>
-                                            Server not responding
-                                            <small>3 hours ago</small>
-                                        </a>
-                                        <a href="#" class="navbar-alerts__item">
-                          <span class="label label-success">
-                            <i class="fa fa-user"></i>
-                          </span>
-                                            New user registered
-                                            <small>5 hours ago</small>
-                                        </a>
-                                        <a href="#" class="navbar-alerts__item">
-                          <span class="label label-danger">
-                            <i class="fa fa-bolt"></i>
-                          </span>
-                                            Database error
-                                            <small>12 days ago</small>
-                                        </a>
-                                        <a href="#" class="navbar-alerts__view-all">
-                                            View All
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
 
                         </div><!-- /.navbar-collapse -->
                     </div><!-- /.container-fluid -->
@@ -262,12 +141,14 @@
 <script src="hotel-assets/bootstrap/js/bootstrap.min.js"></script>
 
 <!-- JS Plugins -->
-<script src="hotel-assets/plugins/chart-js/Chart.min.js"></script>
 <script src="hotel-assets/plugins/count-to/jquery.countTo.js"></script>
 <script src="hotel-assets/plugins/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
 
-<!-- JS Custom -->
-<script src="hotel-assets/js/custom.js"></script>
-
+<script type="text/javascript">
+    $(document).ready(function() {
+        $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
+    });
+</script>
+@yield('more-js')
 </body>
 </html>

@@ -4,13 +4,16 @@ namespace App;
 
 use App\User;
 use App\Reservation;
+use Illuminate\Database\Eloquent\Model;
 
-class HotelAgent extends User
+class HotelAgent extends Model
 {
+    protected $table = 'hotel_agents';
+
     protected $fillable = [
-        'user_id', 'hotel_id', 'is_admin'
+        'id', 'user_id', 'hotel_id', 'is_admin'
     ];
-    
+
 
     /*
      * Relationships go below
@@ -18,6 +21,11 @@ class HotelAgent extends User
 
     public function user()
     {
-        $this->belongsTo('App\User');
+        return $this->belongsTo('App\User');
+    }
+
+    public function hotel()
+    {
+        $this->belongsTo('App\Hotel');
     }
 }
