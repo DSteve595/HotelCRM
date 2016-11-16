@@ -7386,7 +7386,6 @@ form input[type="radio"]:disabled + label:before {
   overflow: hidden;
   position: relative;
   padding-right: 5px;
-  cursor: pointer;
 }
 .sidebar-user__info > h4 {
   margin-bottom: 5px;

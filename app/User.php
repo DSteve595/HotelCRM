@@ -9,7 +9,7 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    const GUEST = 1;
+    const HOTEL_GUEST = 1;
     const HOTEL_AGENT = 2;
 
     /**
@@ -37,5 +37,10 @@ class User extends Authenticatable
     public function hotelAgent()
     {
         $this->hasOne('App\HotelAgent');
+    }
+
+    public function hotelGuest()
+    {
+        $this->hasOne('App\HotelGuest');
     }
 }

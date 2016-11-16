@@ -30,9 +30,6 @@
                         <tbody>
                         <tr>
                             <td>
-                                <div class="table__avatar">
-                                    <img src="assets/img/user_1.jpg" alt="...">
-                                </div>
                                 <strong>John Doe</strong>
                             </td>
                             <td>
@@ -52,9 +49,6 @@
                         </tr>
                         <tr>
                             <td>
-                                <div class="table__avatar">
-                                    <img src="assets/img/user_2.jpg" alt="...">
-                                </div>
                                 <strong>Mary Major</strong>
                             </td>
                             <td>
@@ -74,9 +68,6 @@
                         </tr>
                         <tr>
                             <td>
-                                <div class="table__avatar">
-                                    <img src="assets/img/user_3.jpg" alt="...">
-                                </div>
                                 <strong>Richard Roe</strong>
                             </td>
                             <td>
@@ -96,9 +87,6 @@
                         </tr>
                         <tr>
                             <td>
-                                <div class="table__avatar">
-                                    <img src="assets/img/user_4.jpg" alt="...">
-                                </div>
                                 <strong>Jane Roe</strong>
                             </td>
                             <td>
@@ -118,9 +106,6 @@
                         </tr>
                         <tr>
                             <td>
-                                <div class="table__avatar">
-                                    <img src="assets/img/user_5.jpg" alt="...">
-                                </div>
                                 <strong>Lisa Doe</strong>
                             </td>
                             <td>

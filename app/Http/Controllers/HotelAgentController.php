@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 
 class HotelAgentController extends Controller
 {
+    protected $redirectPath = '/test3';
+
     public function __construct()
     {
         $this->middleware('hotel-agent');

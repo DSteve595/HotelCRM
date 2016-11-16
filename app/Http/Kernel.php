@@ -47,7 +47,8 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'hotel-agent' => \App\Http\Middleware\VerifyHotelAgent::class,
+        'hotel-agent' => \App\Http\Middleware\HotelAgent::class,
+        'hotel-guest' => \App\Http\Middleware\HotelGuest::class,
         'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,

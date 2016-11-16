@@ -37,37 +37,12 @@
 
         <!-- Sidebar user -->
         <div class="sidebar__user">
-
-            <!-- Sidebar user avatar -->
-            <div class="sidebar-user__avatar">
-                <img src="hotel-assets/img/user_1.jpg" alt="...">
-            </div>
-
             <!-- Sidebar user info -->
-            <a class="sidebar-user__info">
-                <h4>Richard Roe</h4>
-                <p>Administrator <i class="fa fa-caret-down"></i></p>
-            </a>
-
+            <div class="sidebar-user__info">
+                <h4>Welcome, {{ auth()->user()->name }}</h4><br />
+                <h4>Today is {{ date('l m/d/Y') }}</h4>
+            </div>
         </div>
-
-        <!-- Sidebar user nav -->
-        <nav class="sidebar-user__nav">
-            <ul class="sidebar__nav">
-                <li>
-                    <a href="profile.html"><i class="fa fa-user"></i> Profile</a>
-                </li>
-                <li>
-                    <a href="edit-profile.html"><i class="fa fa-edit"></i> Edit profile</a>
-                </li>
-                <li>
-                    <a href="inbox.html"><i class="fa fa-envelope-o"></i> Inbox</a>
-                </li>
-                <li>
-                    <a href="{{ @url('/logout') }}"><i class="fa fa-sign-out"></i> Sign out</a>
-                </li>
-            </ul>
-        </nav>
 
         <!-- Sidebar nav -->
         <nav>
@@ -163,7 +138,7 @@
                                     <div class="dropdown-menu navbar-messages">
                                         <a href="#" class="navbar-messages__item">
                                             <div class="navbar-messages__avatar">
-                                                <img src="hotel-assets/img/user_2.jpg" alt="...">
+                                                <img src="" alt="...">
                                             </div>
                                             <div class="navbar-messages__body">
                                                 <h5 class="navbar-messages__sender">
@@ -176,7 +151,7 @@
                                         </a>
                                         <a href="#" class="navbar-messages__item">
                                             <div class="navbar-messages__avatar">
-                                                <img src="hotel-assets/img/user_3.jpg" alt="...">
+                                                <img src="" alt="...">
                                             </div>
                                             <div class="navbar-messages__body">
                                                 <h5 class="navbar-messages__sender">
@@ -189,7 +164,7 @@
                                         </a>
                                         <a href="#" class="navbar-messages__item">
                                             <div class="navbar-messages__avatar">
-                                                <img src="hotel-assets/img/user_4.jpg" alt="...">
+                                                <img src="" alt="...">
                                             </div>
                                             <div class="navbar-messages__body">
                                                 <h5 class="navbar-messages__sender">

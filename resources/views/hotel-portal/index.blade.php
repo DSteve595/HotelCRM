@@ -116,7 +116,7 @@
                 if (err == false) {
                     $("#signUpError").addClass('hidden');
 
-                    $.post('{{ @url('verify-new-user') }}', { username: usernameStr, email: emailStr })
+                    $.post('{{ @url('sign-up/verify-new-user') }}', { username: usernameStr, email: emailStr })
                             .done(function(result) {
                                 if (result == -1) {
                                     displaySignUpError("That username has already been taken.");

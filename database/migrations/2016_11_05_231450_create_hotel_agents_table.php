@@ -16,7 +16,7 @@ class CreateHotelAgentsTable extends Migration
         Schema::create('hotel_agents', function (Blueprint $table) {
             $table->integer('user_id')->unique();
             $table->integer('hotel_id');
-            $table->string('is_admin');
+            $table->boolean('is_admin')->default(0);
             $table->timestamps();
         });
     }

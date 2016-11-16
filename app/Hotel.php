@@ -19,14 +19,5 @@ class Hotel extends Model
     {
         return $this->hasMany('App\Reservations')->orderBy('created_at', 'desc');
     }
-
-    public function followUpTextBlasts()
-    {
-        return $this->hasMany('App\FollowUpTextBlast')->orderBy('num_days', 'asc');
-    }
-
-    public function twilioPhoneNumbers()
-    {
-        return $this->hasMany('App\TwilioPhoneNumbers')->orderBy('state', 'asc');
-    }
+    
 }
