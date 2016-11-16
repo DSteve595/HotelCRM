@@ -2,7 +2,6 @@
 
 namespace Illuminate\Database\Query\Grammars;
 
-use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Database\Query\Builder;
 
@@ -86,22 +85,6 @@ class PostgresGrammar extends Grammar
         $where = $this->compileUpdateWheres($query);
 
         return trim("update {$table} set {$columns}{$from} $where");
-    }
-
-    /**
-     * Prepare the bindings for an update statement.
-     *
-     * @param  array  $bindings
-     * @param  array  $values
-     * @return array
-     */
-    public function prepareBindingsForUpdate(array $bindings, array $values)
-    {
-        $bindingsWithoutJoin = Arr::except($bindings, 'join');
-
-        return array_values(
-            array_merge($values, $bindings['join'], Arr::flatten($bindingsWithoutJoin))
-        );
     }
 
     /**

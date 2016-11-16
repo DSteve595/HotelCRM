@@ -506,46 +506,6 @@ class Mailable implements MailableContract
     }
 
     /**
-     * Get the sender of the message.
-     *
-     * @return array
-     */
-    public function getFrom()
-    {
-        return $this->from;
-    }
-
-    /**
-     * Get the "to" recipients of the message.
-     *
-     * @return array
-     */
-    public function getTo()
-    {
-        return $this->to;
-    }
-
-    /**
-     * Get the "bcc" recipients of the message.
-     *
-     * @return array
-     */
-    public function getBcc()
-    {
-        return $this->bcc;
-    }
-
-    /**
-     * Get the "cc" recipients of the message.
-     *
-     * @return array
-     */
-    public function getCc()
-    {
-        return $this->cc;
-    }
-
-    /**
      * Dynamically bind parameters to the message.
      *
      * @param  string  $method

@@ -14,9 +14,11 @@ class ComposerStaticInit5347fb29908934374d2a7398ae61de92
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
         'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
-        'e40631d46120a9c38ea139981f8dab26' => __DIR__ . '/..' . '/ircmaxell/password-compat/lib/password.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        'e40631d46120a9c38ea139981f8dab26' => __DIR__ . '/..' . '/ircmaxell/password-compat/lib/password.php',
+        '3f8bdd3b35094c73a26f0106e3c0f8b2' => __DIR__ . '/..' . '/sendgrid/sendgrid/lib/SendGrid.php',
+        '9dda55337a76a24e949fbcc5d905a2c7' => __DIR__ . '/..' . '/sendgrid/sendgrid/lib/helpers/mail/Mail.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -56,6 +58,7 @@ class ComposerStaticInit5347fb29908934374d2a7398ae61de92
             'Symfony\\Component\\Console\\' => 26,
             'SuperClosure\\' => 13,
             'Stripe\\' => 7,
+            'SendGrid\\' => 9,
         ),
         'R' => 
         array (
@@ -191,6 +194,10 @@ class ComposerStaticInit5347fb29908934374d2a7398ae61de92
         array (
             0 => __DIR__ . '/..' . '/stripe/stripe-php/lib',
         ),
+        'SendGrid\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sendgrid/php-http-client/lib',
+        ),
         'Ramsey\\Uuid\\' => 
         array (
             0 => __DIR__ . '/..' . '/ramsey/uuid/src',
@@ -308,6 +315,7 @@ class ComposerStaticInit5347fb29908934374d2a7398ae61de92
         'App\\Http\\Controllers\\HotelAgentController' => __DIR__ . '/../..' . '/app/Http/Controllers/HotelAgentController.php',
         'App\\Http\\Controllers\\HotelGuestController' => __DIR__ . '/../..' . '/app/Http/Controllers/HotelGuestController.php',
         'App\\Http\\Controllers\\HotelPostController' => __DIR__ . '/../..' . '/app/Http/Controllers/HotelPostController.php',
+        'App\\Http\\Controllers\\PaymentController' => __DIR__ . '/../..' . '/app/Http/Controllers/PaymentController.php',
         'App\\Http\\Controllers\\PostController' => __DIR__ . '/../..' . '/app/Http/Controllers/PostController.php',
         'App\\Http\\Controllers\\WelcomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/WelcomeController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
@@ -348,7 +356,7 @@ class ComposerStaticInit5347fb29908934374d2a7398ae61de92
         'CreateHotelAgentsTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_05_231450_create_hotel_agents_table.php',
         'CreateHotelGuestsTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_15_222806_create_hotel_guests_table.php',
         'CreateHotelsTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_05_231409_create_hotels_table.php',
-        'CreateJobsTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_16_070650_create_jobs_table.php',
+        'CreateJobsTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_16_194034_create_jobs_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateReservationsTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_06_063052_create_reservations_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
@@ -895,7 +903,6 @@ class ComposerStaticInit5347fb29908934374d2a7398ae61de92
         'Illuminate\\Auth\\TokenGuard' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/TokenGuard.php',
         'Illuminate\\Broadcasting\\BroadcastController' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Broadcasting/BroadcastController.php',
         'Illuminate\\Broadcasting\\BroadcastEvent' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Broadcasting/BroadcastEvent.php',
-        'Illuminate\\Broadcasting\\BroadcastException' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Broadcasting/BroadcastException.php',
         'Illuminate\\Broadcasting\\BroadcastManager' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Broadcasting/BroadcastManager.php',
         'Illuminate\\Broadcasting\\BroadcastServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Broadcasting/BroadcastServiceProvider.php',
         'Illuminate\\Broadcasting\\Broadcasters\\Broadcaster' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Broadcasting/Broadcasters/Broadcaster.php',
@@ -1335,7 +1342,6 @@ class ComposerStaticInit5347fb29908934374d2a7398ae61de92
         'Illuminate\\Queue\\Jobs\\SyncJob' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Queue/Jobs/SyncJob.php',
         'Illuminate\\Queue\\Listener' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Queue/Listener.php',
         'Illuminate\\Queue\\LuaScripts' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Queue/LuaScripts.php',
-        'Illuminate\\Queue\\ManuallyFailedException' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Queue/ManuallyFailedException.php',
         'Illuminate\\Queue\\MaxAttemptsExceededException' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Queue/MaxAttemptsExceededException.php',
         'Illuminate\\Queue\\NullQueue' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Queue/NullQueue.php',
         'Illuminate\\Queue\\Queue' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Queue/Queue.php',
@@ -2573,6 +2579,8 @@ class ComposerStaticInit5347fb29908934374d2a7398ae61de92
         'SebastianBergmann\\RecursionContext\\InvalidArgumentException' => __DIR__ . '/..' . '/sebastian/recursion-context/src/InvalidArgumentException.php',
         'SebastianBergmann\\ResourceOperations\\ResourceOperations' => __DIR__ . '/..' . '/sebastian/resource-operations/src/ResourceOperations.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
+        'SendGrid\\Client' => __DIR__ . '/..' . '/sendgrid/php-http-client/lib/Client.php',
+        'SendGrid\\Response' => __DIR__ . '/..' . '/sendgrid/php-http-client/lib/Response.php',
         'Stripe\\Account' => __DIR__ . '/..' . '/stripe/stripe-php/lib/Account.php',
         'Stripe\\AlipayAccount' => __DIR__ . '/..' . '/stripe/stripe-php/lib/AlipayAccount.php',
         'Stripe\\ApiRequestor' => __DIR__ . '/..' . '/stripe/stripe-php/lib/ApiRequestor.php',

@@ -91,7 +91,7 @@ class LoadConfiguration
      */
     protected function getConfigurationNesting(SplFileInfo $file, $configPath)
     {
-        $directory = $file->getPath();
+        $directory = dirname($file->getRealPath());
 
         if ($tree = trim(str_replace($configPath, '', $directory), DIRECTORY_SEPARATOR)) {
             $tree = str_replace(DIRECTORY_SEPARATOR, '.', $tree).'.';

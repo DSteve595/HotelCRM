@@ -373,7 +373,7 @@ class Mailer implements MailerContract, MailQueueContract
         try {
             return $this->swift->send($message, $this->failedRecipients);
         } finally {
-            $this->forceReconnection();
+            $this->swift->getTransport()->stop();
         }
     }
 

@@ -26,13 +26,6 @@ class SlackAttachment
     public $content;
 
     /**
-     * The attachment's color.
-     *
-     * @var string
-     */
-    public $color;
-
-    /**
      * The attachment's fields.
      *
      * @var array
@@ -63,19 +56,6 @@ class SlackAttachment
     public function content($content)
     {
         $this->content = $content;
-
-        return $this;
-    }
-
-    /**
-     * Set the color of the attachment.
-     *
-     * @param  string  $color
-     * @return $this
-     */
-    public function color($color)
-    {
-        $this->color = $color;
 
         return $this;
     }

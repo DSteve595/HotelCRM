@@ -9,7 +9,8 @@
         "laravel/framework": "5.3.*",
         "ircmaxell/password-compat": "^1.0",
         "twilio/sdk": "^5.4",
-        "stripe/stripe-php": "^4.1"
+        "stripe/stripe-php": "^4.1",
+        "sendgrid/sendgrid": "^5.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

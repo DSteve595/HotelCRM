@@ -2,7 +2,6 @@
 
 namespace Illuminate\Translation;
 
-use Countable;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
@@ -198,7 +197,7 @@ class Translator extends NamespacedItemResolver implements TranslatorInterface
     {
         return (new Collection($replace))->sortBy(function ($value, $key) {
             return mb_strlen($key) * -1;
-        })->all();
+        });
     }
 
     /**
@@ -214,7 +213,7 @@ class Translator extends NamespacedItemResolver implements TranslatorInterface
     {
         $line = $this->get($key, $replace, $locale = $locale ?: $this->locale ?: $this->fallback);
 
-        if (is_array($number) || $number instanceof Countable) {
+        if (is_array($number) || $number instanceof \Countable) {
             $number = count($number);
         }
 

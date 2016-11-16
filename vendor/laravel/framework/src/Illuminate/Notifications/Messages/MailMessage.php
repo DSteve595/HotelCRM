@@ -43,13 +43,6 @@ class MailMessage extends SimpleMessage
     public $cc = [];
 
     /**
-     * The "reply to" information for the message.
-     *
-     * @var array
-     */
-    public $replyTo = [];
-
-    /**
      * The attachments for the message.
      *
      * @var array
@@ -121,20 +114,6 @@ class MailMessage extends SimpleMessage
     public function cc($address)
     {
         $this->cc = $address;
-
-        return $this;
-    }
-
-    /**
-     * Set the "reply to" address of the message.
-     *
-     * @param  array|string $address
-     * @param null $name
-     * @return $this
-     */
-    public function replyTo($address, $name = null)
-    {
-        $this->replyTo = [$address, $name];
 
         return $this;
     }
