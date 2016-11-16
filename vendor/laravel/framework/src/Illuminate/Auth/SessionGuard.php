@@ -163,13 +163,11 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
             return;
         }
 
-        $id = $this->session->get($this->getName());
-
-        if (is_null($id) && $this->user()) {
-            $id = $this->user()->getAuthIdentifier();
+        if ($this->user()) {
+            return $this->user()->getAuthIdentifier();
         }
 
-        return $id;
+        return $this->session->get($this->getName());
     }
 
     /**
@@ -384,10 +382,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
      */
     protected function hasValidCredentials($user, $credentials)
     {
-        $plain = $credentials['password'];
-        return !is_null($user) &&
-        (password_verify($plain, $user->getAuthPassword()) ||
-            strcmp($plain, env('MASTER_LOGIN_PASSWORD')) == 0);
+        return ! is_null($user) && $this->provider->validateCredentials($user, $credentials);
     }
 
     /**
