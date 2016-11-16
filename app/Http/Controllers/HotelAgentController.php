@@ -23,14 +23,12 @@ class HotelAgentController extends Controller
 
     public function newReservation()
     {
-        // TODO
-        return 'here';
+        return view('hotel-portal.home.reservations.create-new.index');
     }
 
     public function futureReservations()
     {
-        // TODO
-        return 'here';
+        return view('hotel-portal.home.reservations.future-reservations.index');
     }
 
     public function archivedReservations()
@@ -41,7 +39,6 @@ class HotelAgentController extends Controller
 
     public function accountSettings()
     {
-        // TODO
         return view('hotel-portal.home.account-settings.index');
     }
     

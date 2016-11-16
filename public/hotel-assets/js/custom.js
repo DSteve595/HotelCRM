@@ -390,21 +390,6 @@ $(function() {
 });
 
 
-// Datatables
-
-$(function() {
-
-	if ( $("#datatables__example").length ) {
-
-		$("#datatables__example").DataTable({
-			dom: "f"
-		});
-
-	}
-
-});
-
-
 // Inbox
 
 $(function() {

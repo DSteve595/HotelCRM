@@ -7473,6 +7473,12 @@ form input[type="radio"]:disabled + label:before {
   color: #ffffff;
   text-decoration: none;
 }
+.active-nav {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+  border-left-color: #bb95d5 !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
 .sidebar-nav__submenu > li.active > a {
   color: white;
 }
