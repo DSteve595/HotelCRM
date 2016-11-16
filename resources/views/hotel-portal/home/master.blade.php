@@ -12,11 +12,11 @@
     <title>HotelCRM - Home</title>
 
     <!-- CSS Plugins -->
-    <link rel="stylesheet" href="hotel-assets/plugins/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="hotel-assets/plugins/perfect-scrollbar/css/perfect-scrollbar.min.css">
+    <link rel="stylesheet" href="{{ asset('hotel-assets/plugins/font-awesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('hotel-assets/plugins/perfect-scrollbar/css/perfect-scrollbar.min.css') }}">
 
     <!-- CSS Global -->
-    <link href="hotel-assets/css/styles.css" rel="stylesheet">
+    <link href="{{ asset('hotel-assets/css/styles.css') }}" rel="stylesheet">
 
     <!-- Google Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300,500' rel='stylesheet' type='text/css'>
@@ -33,7 +33,7 @@
 
         <!-- Close button (mobile devices) -->
         <div class="sidebar__close">
-            <img src="hotel-assets/img/close.svg" alt="Close sidebar">
+            <img src="{{ asset('hotel-assets/img/close.svg') }}" alt="Close sidebar">
         </div>
 
         <!-- Sidebar user -->
@@ -46,33 +46,7 @@
         </div>
 
         <!-- Sidebar nav -->
-        <nav>
-            <ul class="sidebar__nav">
-                <li class="sidebar-nav__heading">Dashboard</li>
-                <li>
-                    <a href="{{ @url('/home') }}"><i class="fa fa-th-large"></i> Dashboard</a>
-                </li>
-                <li class="sidebar-nav__heading">Pages</li>
-                <li class="sidebar-nav__dropdown">
-                    <a href="#"><i class="fa fa-user"></i> Reservations <i class="fa fa-angle-down"></i></a>
-                    <ul class="sidebar-nav__submenu">
-                        <li><a href="{{ url('home/new-reservation') }}">Create new</a></li>
-                        <li><a href="{{ url('home/future-reservations') }}">Future reservations</a></li>
-                        <li><a href="{{ url('home/archived-reservations') }}">Archived</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="{{ url('home/account-settings') }}"><i class="fa fa-gear"></i> Account Settings</a>
-                </li>
-                <li class="sidebar-nav__heading">Hotel Management</li>
-                <li>
-                    <a href="ui_tables.html"><i class="fa fa-user-plus"></i> Manage users</a>
-                </li>
-                <li>
-                    <a href="ui_forms.html"><i class="fa fa-check-square-o"></i> Hotel Settings</a>
-                </li>
-            </ul>
-        </nav>
+        @include('hotel-portal.home.nav')
 
     </div>
 
@@ -138,12 +112,12 @@
 
 <!-- JS Global -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="hotel-assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="{{ asset('hotel-assets/bootstrap/js/bootstrap.min.js') }}"></script>
 
 <!-- JS Plugins -->
-<script src="hotel-assets/plugins/count-to/jquery.countTo.js"></script>
-<script src="hotel-assets/plugins/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
-
+<script src="{{ asset('hotel-assets/plugins/count-to/jquery.countTo.js') }}"></script>
+<script src="{{ asset('hotel-assets/plugins/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js') }}"></script>
+<script src="{{ asset('hotel-assets/js/custom.js') }}"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});

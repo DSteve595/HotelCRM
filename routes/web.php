@@ -36,6 +36,18 @@ Route::group(['prefix' => 'home'], function() {
     // Main dashboard for a hotel agent: /home
     Route::get('', 'HotelAgentController@home');
 
+    // Create a new reservation
+    Route::get('new-reservation', 'HotelAgentController@newReservation');
+
+    // View future reservations
+    Route::get('future-reservations', 'HotelAgentController@futureReservations');
+
+    // View archived reservations
+    Route::get('archived-reservations', 'HotelAgentController@archivedReservations');
+
+    // Account settings
+    Route::get('account-settings', 'HotelAgentController@accountSettings');
+
 });
 
 // Routes for when a guest is logged in
