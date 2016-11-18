@@ -18,7 +18,12 @@ class HotelAgentController extends Controller
 
     public function home()
     {
-        return view('hotel-portal.home.index');
+        $reservations = Reservation::where('hotel_id', auth()->user()->hotelAgent->hotel_id)
+            ->where('check_in_date', date('Y-m-d'))
+            ->get();
+
+        return view('hotel-portal.home.index')
+            ->with('reservations', $reservations);
     }
 
     public function newReservation()
@@ -40,6 +45,11 @@ class HotelAgentController extends Controller
     public function accountSettings()
     {
         return view('hotel-portal.home.account-settings.index');
+    }
+
+    public function viewReservation(Request $request)
+    {
+        
     }
     
 }

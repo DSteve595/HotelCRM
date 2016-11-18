@@ -48,6 +48,9 @@ Route::group(['prefix' => 'home'], function() {
     // Account settings
     Route::get('account-settings', 'HotelAgentController@accountSettings');
 
+    // View a specific reservation details
+    Route::get('view-reservation', 'HotelAgentController@viewReservation');
+
 });
 
 // Routes for when a guest is logged in

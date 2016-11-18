@@ -10,24 +10,19 @@
                     <table class="table" id="datatables__example">
                         <thead>
                         <tr>
-                            <th>
-                                Name
-                            </th>
-                            <th>
-                                Account type
-                            </th>
-                            <th>
-                                Member since
-                            </th>
-                            <th>
-                                Last login
-                            </th>
-                            <th>
-                                Status
-                            </th>
+                            <th>Name</th>
+                            <th>Phone number</th>
+                            <th># nights</th>
+                            <th># guests</th>
+                            <th>Status</th>
                         </tr>
                         </thead>
                         <tbody>
+                        @foreach ($reservations as $reservation)
+                        <tr>
+
+                        </tr>
+                        @endforeach
                         <tr>
                             <td>
                                 <strong>John Doe</strong>

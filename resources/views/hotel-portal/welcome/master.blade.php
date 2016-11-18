@@ -40,11 +40,6 @@
     <!--=== Header ===-->
     <div class="header">
         <div class="container" style="height: 100px;">
-            <!-- Logo -->
-            <a class="logo42go" href="{{ @url('') }}">
-                <img src="{{ asset('') }}" alt="Logo" style="margin-top: 15px;">
-            </a>
-            <!-- End Logo -->
             <div class="pull-right header-desc" style="margin-top: 15px;">
                 <h3>For hotels everywhere</h3>
             </div>

@@ -27,15 +27,21 @@
         searchReservationBtn.click(function() {
             $(this).attr('disabled', true);
             let input = searchInput.val().trim();
-            if (input.length < 3) {
+            if (input.length < 1) {
                 searchInput.addClass('alert-danger');
                 $(this).attr('disabled', false);
                 return;
             }
             searchInput.removeClass('alert-danger');
             $.post('{{ url('hotel-post/find-reservation') }}', { q: input })
-                    .done(function(data) {
-                        console.log(data);
+                    .done(function(result) {
+                        console.log(result);
+                        if (result !== 0) {
+
+                        }
+                        else {
+                            window.location = '{{ url('home/view-reservation?reservation-id=') }}' + result;
+                        }
                     });
 
             $(this).attr('disabled', false);

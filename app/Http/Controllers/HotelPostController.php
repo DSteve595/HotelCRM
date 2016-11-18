@@ -15,12 +15,11 @@ class HotelPostController extends Controller
 
     public function findReservation(Request $request)
     {
-        $user = auth()->user();
         $reservation_number = Utility::getAlphaNumeric($request->input('q'), 40);
-        $reservation = Reservation::where('hotel_id', $user->hotel_id)
+        $reservation = Reservation::where('hotel_id', auth()->user()->hotel_id)
             ->where('custom_reservation_number', $reservation_number)
-            ->first();
+            ->value('custom_reservation_number');
 
-        return $reservation == null ? null : $reservation->toJson();
+        return $reservation == null ? 0 : $reservation->toJson();
     }
 }
