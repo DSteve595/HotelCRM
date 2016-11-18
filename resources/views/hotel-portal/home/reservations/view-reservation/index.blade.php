@@ -4,14 +4,13 @@
     <div class="row">
         <div class="col-xs-12">
             <h3 class="page-header">
-                Dashboard <small>Todays activity</small>
+                Reservation <small>View reservation</small>
             </h3>
         </div>
     </div>
     <div class="row">
-
+        
     </div>
-    @include('hotel-portal.home.dashboard.reservations-today-table')
 @endsection
 
 @section('more-js')

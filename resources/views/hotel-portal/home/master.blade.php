@@ -66,16 +66,16 @@
                                 <i class="fa fa-bars"></i>
                             </a>
 
-                            <div class="navbar-form navbar-left hidden-xs" role="search">
+                            <form action="{{ url('home/view-reservation') }}" class="navbar-form navbar-left hidden-xs" role="search">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="searchInput" placeholder="Lookup reservation">
+                                    <input type="text" class="form-control" name="searchInput" placeholder="Lookup reservation">
                                     <div class="input-group-btn">
-                                        <button type="button" class="btn btn-default" id="searchReservationBtn">
+                                        <button type="submit" class="btn btn-default">
                                             <i class="fa fa-search"></i>
                                         </button>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
 
                             <a href="{{ @url('/logout') }}" class="btn btn-primary navbar-btn navbar-right">
                                 Sign Out

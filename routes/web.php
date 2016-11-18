@@ -90,8 +90,7 @@ Route::get('logout', 'Auth\LoginController@logout');
 // Routes for HotelPostController
 Route::group(['prefix' => 'hotel-post'], function() {
 
-    // Get reservation by reservation number
-    Route::post('find-reservation', 'HotelPostController@findReservation');
+    
 
 });
 
