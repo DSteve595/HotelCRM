@@ -17,8 +17,8 @@ class CreateReservationsTable extends Migration
             $table->increments('id');
             $table->integer('hotel_id');
             $table->integer('booked_by_user_id');
-            $table->date('check_in');
-            $table->date('check_out');
+            $table->date('check_in_date');
+            $table->date('check_out_date');
             $table->string('custom_reservation_number', 10);
             $table->decimal('total_price');
             $table->integer('checked_in')->default(0);

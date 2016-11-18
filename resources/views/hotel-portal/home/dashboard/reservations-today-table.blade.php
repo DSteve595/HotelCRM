@@ -19,105 +19,26 @@
                         </thead>
                         <tbody>
                         @foreach ($reservations as $reservation)
-                        <tr>
-
-                        </tr>
+                            <tr>
+                                <td>
+                                    <strong>{{ $reservation->hotelGuest->name }}</strong>
+                                </td>
+                                <td>
+                                    Admin
+                                </td>
+                                <td>
+                                    Jan 01, 2016
+                                </td>
+                                <td>
+                                    1 minute ago
+                                </td>
+                                <td>
+                                    <div class="table__status online">
+                                        <i class="fa fa-circle-o"></i> Online
+                                    </div>
+                                </td>
+                            </tr>
                         @endforeach
-                        <tr>
-                            <td>
-                                <strong>John Doe</strong>
-                            </td>
-                            <td>
-                                Admin
-                            </td>
-                            <td>
-                                Jan 01, 2016
-                            </td>
-                            <td>
-                                1 minute ago
-                            </td>
-                            <td>
-                                <div class="table__status online">
-                                    <i class="fa fa-circle-o"></i> Online
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <strong>Mary Major</strong>
-                            </td>
-                            <td>
-                                Moderator
-                            </td>
-                            <td>
-                                Jun 15, 2015
-                            </td>
-                            <td>
-                                5 days ago
-                            </td>
-                            <td>
-                                <div class="table__status offline">
-                                    <i class="fa fa-circle-o"></i> Offline
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <strong>Richard Roe</strong>
-                            </td>
-                            <td>
-                                Moderator
-                            </td>
-                            <td>
-                                Sep 26, 2015
-                            </td>
-                            <td>
-                                15 minutes ago
-                            </td>
-                            <td>
-                                <div class="table__status online">
-                                    <i class="fa fa-circle-o"></i> Online
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <strong>Jane Roe</strong>
-                            </td>
-                            <td>
-                                User
-                            </td>
-                            <td>
-                                May 15, 2015
-                            </td>
-                            <td>
-                                2 minutes ago
-                            </td>
-                            <td>
-                                <div class="table__status online">
-                                    <i class="fa fa-circle-o"></i> Online
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <strong>Lisa Doe</strong>
-                            </td>
-                            <td>
-                                User
-                            </td>
-                            <td>
-                                Jan 02, 2016
-                            </td>
-                            <td>
-                                30 days ago
-                            </td>
-                            <td>
-                                <div class="table__status offline">
-                                    <i class="fa fa-circle-o"></i> Offline
-                                </div>
-                            </td>
-                        </tr>
                         </tbody>
                     </table>
                 </div>

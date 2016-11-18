@@ -24,5 +24,14 @@ class Reservation extends Model
         } while ($count_duplicates > 0);
         return $str;
     }
-    
+
+    /*
+     * Relationships go below
+     */
+
+    public function hotelGuest()
+    {
+        $this->hasOne('App\HotelGuest', 'booked_by_user_id', 'user_id');
+    }
+
 }

@@ -14,6 +14,7 @@ class CreateHotelGuestsTable extends Migration
     public function up()
     {
         Schema::create('hotel_guests', function (Blueprint $table) {
+            $table->integer('user_id')->unique();
             $table->string('phone_number', 10)->nullable();
             $table->timestamps();
         });
