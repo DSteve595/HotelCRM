@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-xs-12">
             <h3 class="page-header">
-                Dashboard <small>Todays activity</small>
+                Dashboard <small>Today's activity</small>
             </h3>
         </div>
     </div>

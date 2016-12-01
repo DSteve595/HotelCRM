@@ -11,7 +11,7 @@ class Utility extends Model
         if ($phone_number == null) return '';
         if (strlen($phone_number) < 10) return '';
         $phone_number = str_replace('+1', '', $phone_number);
-        return substr($phone_number, 0, 3) . '-' . substr($phone_number, 3, 3) . '-' . substr($phone_number, 6);
+        return '(' . substr($phone_number, 0, 3) . ') ' . substr($phone_number, 3, 3) . '-' . substr($phone_number, 6);
     }
 
     public static function formatPrettyDatetime($datetime, $hour_offset)

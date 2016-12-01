@@ -113,22 +113,22 @@ class DatabaseSeeder extends Seeder
 
         $reservationPast1 = \App\Reservation::create([
             'hotel_id' => $hotelFranklin->id,
-            'booked_by_user_id' => $userTim->id,
-            'check_in_date' => date('Y-m-d', strtotime('-1 day')),
-            'check_out_date' => date('Y-m-d', strtotime('+3 day')),
-            'custom_reservation_number' => \App\Reservation::generateNewReservationNumber(),
-            'total_price' => 123,
-            'number_guests' => 5
-        ]);
-
-        $reservationPast2 = \App\Reservation::create([
-            'hotel_id' => $hotelFranklin->id,
             'booked_by_user_id' => $userBob->id,
             'check_in_date' => date('Y-m-d', strtotime('-3 day')),
             'check_out_date' => date('Y-m-d', strtotime('+7 day')),
             'custom_reservation_number' => \App\Reservation::generateNewReservationNumber(),
             'total_price' => 456,
             'number_guests' => 2
+        ]);
+
+        $reservationPast2 = \App\Reservation::create([
+            'hotel_id' => $hotelFranklin->id,
+            'booked_by_user_id' => $userTim->id,
+            'check_in_date' => date('Y-m-d', strtotime('-1 day')),
+            'check_out_date' => date('Y-m-d', strtotime('+3 day')),
+            'custom_reservation_number' => \App\Reservation::generateNewReservationNumber(),
+            'total_price' => 123,
+            'number_guests' => 5
         ]);
     }
 }
