@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="hotel-assets/ico/favicon.ico">
+    <link rel="shortcut icon" href="{{ asset('hotel-assets/ico/favicon.ico') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>HotelCRM - Home</title>
@@ -53,8 +53,8 @@
     <!-- MAIN CONTENT
     ================================================== -->
     <div class="container-fluid">
-
-        <!-- Navbar -->
+    @include('hotel-portal.home.modals.view-reservation-modal')
+    <!-- Navbar -->
         <div class="row">
             <div class="col-xs-12">
 
@@ -88,14 +88,14 @@
             </div>
         </div> <!-- / .row -->
 
-        @yield('content')
+    @yield('content')
 
-        <!-- Footer -->
+    <!-- Footer -->
         <footer class="footer">
             <div class="row">
                 <div class="col-xs-12">
 
-                    &copy; HotelCRM Solutions 2016. All rights reserved.
+                    &copy; Company 2016. All rights reserved.
                     <a href="#">Terms of Service</a> |
                     <a href="#">Privacy Policy</a>
                 </div>
@@ -121,6 +121,50 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
+
+        var reservationRows = $(".reservation-rows");
+        var viewReservationModal = $("#viewReservationModal");
+
+        // Modal table span elements
+        var viewReservationModalName = $("#viewReservationModalName");
+        var viewReservationModalPhoneNumber = $("#viewReservationModalPhoneNumber");
+        var viewReservationModalNights = $("#viewReservationModalNights");
+        var viewReservationModalGuests = $("#viewReservationModalGuests");
+        var viewReservationModalStatus = $("#viewReservationModalStatus");
+
+        var modalCheckInBtn = $("#modalCheckInBtn");
+        var modalCheckOutBtn = $("#modalCheckOutBtn");
+
+        modalCheckInBtn.click(function() {
+
+        });
+
+        viewReservationModal.on('hidden.bs.modal', function() {
+
+            viewReservationModalName.val('');
+            viewReservationModalPhoneNumber.val('');
+            viewReservationModalNights.val('');
+            viewReservationModalGuests.val('');
+            viewReservationModalStatus.val('');
+        });
+
+        reservationRows.click(function() {
+
+            // post the form
+            $.post('{{ @url('hotel-post/get-reservation') }}', { id: $(this).attr('id') })
+                    .done(function(data) {
+
+                        // populate spans
+                        viewReservationModalName.text(data.name);
+                        viewReservationModalPhoneNumber.text(data.phone_number);
+                        viewReservationModalNights.text(data.nights);
+                        viewReservationModalGuests.text(data.guests);
+                        viewReservationModalStatus.text(data.status);
+
+                        // show modal
+                        viewReservationModal.modal('show');
+                    });
+        });
     });
 </script>
 @yield('more-js')

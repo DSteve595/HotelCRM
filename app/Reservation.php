@@ -32,6 +32,13 @@ class Reservation extends Model
             ->get();
     }
 
+    public static function getReservation($hotel_id, $reservation_id)
+    {
+        return self::where('hotel_id', $hotel_id)
+            ->where('id', $reservation_id)
+            ->first();
+    }
+
     /*
      * Relationships go below
      */

@@ -13,5 +13,17 @@ class HotelPostController extends Controller
         $this->middleware('hotel-agent');
     }
 
-    
+    public function getReservation(Request $request)
+    {
+        $reservation = Reservation::getReservation(auth()->user()->hotelAgent->hotel_id, $request->input('id'));
+        return $reservation == null ? 0 :
+            [
+                'name' => $reservation->hotelGuest->user->name,
+                'phone_number' => Utility::formatPrettyPhoneNumber($reservation->hotelGuest->phone_number),
+                'nights' => $reservation->getNumberNights(),
+                'guests' => $reservation->number_guests,
+                'status' => $reservation->checked_in
+            ];
+    }
+
 }

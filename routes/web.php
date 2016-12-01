@@ -95,7 +95,8 @@ Route::get('logout', 'Auth\LoginController@logout');
 // Routes for HotelPostController
 Route::group(['prefix' => 'hotel-post'], function() {
 
-    
+    // Route to view a reservation for the modal
+    Route::post('get-reservation', 'HotelPostController@getReservation');
 
 });
 
