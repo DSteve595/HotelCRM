@@ -16,7 +16,6 @@ class CreateRoomsTable extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->increments('id');
             $table->string('room_number');
-            $table->integer('active_reservation_id')->default(-1);
             $table->integer('hotel_id');
             $table->boolean('is_smoking')->default(0);
             $table->integer('max_guests');
