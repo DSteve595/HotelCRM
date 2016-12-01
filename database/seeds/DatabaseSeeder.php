@@ -163,6 +163,7 @@ class DatabaseSeeder extends Seeder
 
         $reservationFuture1 = \App\Reservation::create([
             'hotel_id' => $hotelFranklin->id,
+            'room_id' => $room201->id,
             'booked_by_user_id' => $userTim->id,
             'check_in_date' => date('Y-m-d', strtotime('+2 day')),
             'check_out_date' => date('Y-m-d', strtotime('+4 day')),
@@ -173,6 +174,7 @@ class DatabaseSeeder extends Seeder
 
         $reservationFuture2 = \App\Reservation::create([
             'hotel_id' => $hotelFranklin->id,
+            'room_id' => $room201->id,
             'booked_by_user_id' => $userBob->id,
             'check_in_date' => date('Y-m-d', strtotime('+13 day')),
             'check_out_date' => date('Y-m-d', strtotime('+19 day')),
