@@ -38,7 +38,7 @@ class HotelAgentController extends Controller
             ->where('check_in_date', '>=', date('Y-m-d'))
             ->get();
 
-        return view('hotel-portal.home.reservations.archived-reservations.index')
+        return view('hotel-portal.home.reservations.future-reservations.index')
             ->with('reservations', $reservations);
     }
 
