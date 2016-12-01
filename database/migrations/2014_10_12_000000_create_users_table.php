@@ -23,6 +23,23 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        $user = \App\User::create([
+            'name' => 'Bob Franklin',
+            'username' => 'bobfranklin',
+            'password' => \App\Utility::getHashedPassword('bobfranklin'),
+            'email' => 'bobfranklin@gmail.com',
+            'account_type' => \App\User::HOTEL_AGENT
+        ]);
+
+        $guest = \App\User::create([
+            'name' => 'Tim Jones',
+            'username' => 'timjones',
+            'password' => \App\Utility::getHashedPassword('timjones'),
+            'email' => 'timjones@gmail.com',
+            'account_type' => \App\User::HOTEL_GUEST
+        ]);
+
     }
 
     /**

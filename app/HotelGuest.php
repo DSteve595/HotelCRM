@@ -9,7 +9,7 @@ class HotelGuest extends Model
     protected $table = 'hotel_guests';
 
     protected $fillable = [
-        'user_id', 'phone_number'
+        'id', 'user_id', 'phone_number'
     ];
 
     
@@ -20,7 +20,7 @@ class HotelGuest extends Model
 
     public function reservation()
     {
-        $this->hasMany('App\HotelGuest', 'user_id', 'booked_by_user_id');
+        return $this->hasMany('App\Reservation');
     }
 
 }

@@ -17,7 +17,17 @@ class Hotel extends Model
 
     public function hotelAgent()
     {
-        $this->hasMany('App\HotelAgent');
+        return $this->hasMany('App\HotelAgent');
+    }
+
+    public function room()
+    {
+        return $this->hasMany('App\Room', 'hotel_id', 'id');
+    }
+
+    public function reservation()
+    {
+        return $this->hasMany('App\Reservation');
     }
     
 }

@@ -29,9 +29,19 @@ class Reservation extends Model
      * Relationships go below
      */
 
+    public function hotel()
+    {
+        return $this->belongsTo('App\Hotel');
+    }
+
+    public function room()
+    {
+        return $this->hasOne('App\Room');
+    }
+
     public function hotelGuest()
     {
-        $this->hasOne('App\HotelGuest', 'booked_by_user_id', 'user_id');
+        return $this->belongsTo('App\HotelGuest', 'booked_by_user_id', 'id');
     }
 
 }

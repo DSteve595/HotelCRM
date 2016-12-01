@@ -20,6 +20,12 @@ class CreateHotelsTable extends Migration
             $table->string('primary_phone_number', 15);
             $table->timestamps();
         });
+
+        \App\Hotel::create([
+            'name' => 'Franklin Hotel',
+            'primary_phone_number' => '1231231234'
+        ]);
+
     }
 
     /**

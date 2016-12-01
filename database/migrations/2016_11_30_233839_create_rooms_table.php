@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHotelAgentsTable extends Migration
+class CreateRoomsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,14 @@ class CreateHotelAgentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('hotel_agents', function (Blueprint $table) {
+        Schema::create('rooms', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unique();
+            $table->integer('reservation_id');
             $table->integer('hotel_id');
-            $table->boolean('is_admin')->default(0);
+            $table->boolean('is_smoking')->default(0);
+            $table->integer('max_guests');
             $table->timestamps();
         });
-
-        \App\HotelAgent::create([
-            'user_id' => 1,
-            'hotel_id' => 1,
-            'is_admin' => 1
-        ]);
     }
 
     /**
@@ -35,6 +30,6 @@ class CreateHotelAgentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hotel_agents');
+        Schema::dropIfExists('rooms');
     }
 }

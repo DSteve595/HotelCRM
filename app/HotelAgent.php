@@ -21,11 +21,11 @@ class HotelAgent extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User', 'id', 'user_id');
     }
 
     public function hotel()
     {
-        $this->belongsTo('App\Hotel');
+        return $this->belongsTo('App\Hotel', 'hotel_id', 'id');
     }
 }
