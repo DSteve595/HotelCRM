@@ -5,6 +5,7 @@
         <div class="col-xs-12">
             <h3 class="page-header">
                 Archived reservations
+                <br/>
                 <small>All reservations booked in the past</small>
             </h3>
         </div>

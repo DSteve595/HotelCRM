@@ -5,6 +5,7 @@
         <div class="col-xs-12">
             <h3 class="page-header">
                 Manage users
+                <br/>
                 <small>See and edit accounts for your hotel's employees</small>
             </h3>
         </div>

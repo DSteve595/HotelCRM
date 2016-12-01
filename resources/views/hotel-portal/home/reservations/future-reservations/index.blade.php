@@ -5,6 +5,7 @@
         <div class="col-xs-12">
             <h3 class="page-header">
                 Future reservations
+                <br/>
                 <small>All reservations booked for future dates and today</small>
             </h3>
         </div>
