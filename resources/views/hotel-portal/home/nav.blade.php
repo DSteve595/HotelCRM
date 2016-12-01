@@ -10,7 +10,7 @@
             <ul class="sidebar-nav__submenu">
                 <li><a href="{{ url('home/new-reservation') }}">Create new</a></li>
                 <li><a href="{{ url('home/future-reservations') }}">Future reservations</a></li>
-                <li><a href="{{ url('home/archived-reservations') }}">Archived</a></li>
+                <li><a href="{{ url('home/archived-reservations') }}">Archive</a></li>
             </ul>
         </li>
         <li {{ \App\Utility::handleActiveNavigation('/account-settings') }}>
