@@ -19,16 +19,6 @@ class CreateHotelGuestsTable extends Migration
             $table->string('phone_number', 10)->nullable();
             $table->timestamps();
         });
-
-        \App\HotelGuest::create([
-            'user_id' => 2,
-            'phone_number' => '1233332323'
-        ]);
-
-        \App\HotelGuest::create([
-            'user_id' => 3,
-            'phone_number' => '1414141414'
-        ]);
     }
 
     /**

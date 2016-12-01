@@ -25,36 +25,6 @@ class CreateReservationsTable extends Migration
             $table->integer('checked_in')->default(0);
             $table->timestamps();
         });
-
-        \App\Reservation::create([
-            'hotel_id' => 1,
-            'booked_by_user_id' => 2,
-            'check_in_date' => date('Y-m-d'),
-            'check_out_date' => date('Y-m-d', strtotime('+5 day')),
-            'custom_reservation_number' => \App\Reservation::generateNewReservationNumber(),
-            'total_price' => 123,
-            'number_guests' => 3
-        ]);
-
-        \App\Reservation::create([
-            'hotel_id' => 2,
-            'booked_by_user_id' => 3,
-            'check_in_date' => date('Y-m-d'),
-            'check_out_date' => date('Y-m-d', strtotime('+3 day')),
-            'custom_reservation_number' => \App\Reservation::generateNewReservationNumber(),
-            'total_price' => 123,
-            'number_guests' => 1
-        ]);
-
-        \App\Reservation::create([
-            'hotel_id' => 2,
-            'booked_by_user_id' => 3,
-            'check_in_date' => date('Y-m-d'),
-            'check_out_date' => date('Y-m-d', strtotime('+7 day')),
-            'custom_reservation_number' => \App\Reservation::generateNewReservationNumber(),
-            'total_price' => 456,
-            'number_guests' => 4
-        ]);
     }
 
     /**

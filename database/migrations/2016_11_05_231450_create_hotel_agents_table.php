@@ -20,18 +20,6 @@ class CreateHotelAgentsTable extends Migration
             $table->boolean('is_admin')->default(0);
             $table->timestamps();
         });
-
-        \App\HotelAgent::create([
-            'user_id' => 1,
-            'hotel_id' => 1,
-            'is_admin' => 1
-        ]);
-
-        \App\HotelAgent::create([
-            'user_id' => 3,
-            'hotel_id' => 2,
-            'is_admin' => 1
-        ]);
     }
 
     /**
