@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="container content content-home">
-        <div class="headline"><h2>Whats HotelCRM.Solutions?</h2></div>
+        <div class="headline"><h2>What is HotelCRM.Solutions?</h2></div>
         <div class="row category margin-bottom-20">
             @include('hotel-portal.welcome.features')
             @include('hotel-portal.welcome.signup')

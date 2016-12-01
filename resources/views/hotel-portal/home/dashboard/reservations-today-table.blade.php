@@ -1,4 +1,3 @@
-<!-- Basic table -->
 <div class="row">
     <div class="col-xs-12">
         <div class="panel panel-default">
@@ -45,4 +44,4 @@
             </div>
         </div>
     </div>
-</div> <!-- / .row -->
+</div>
