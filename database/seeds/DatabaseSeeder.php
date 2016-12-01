@@ -145,5 +145,25 @@ class DatabaseSeeder extends Seeder
             'total_price' => 123,
             'number_guests' => 5
         ]);
+
+        $reservationFuture1 = \App\Reservation::create([
+            'hotel_id' => $hotelFranklin->id,
+            'booked_by_user_id' => $userTim->id,
+            'check_in_date' => date('Y-m-d', strtotime('+2 day')),
+            'check_out_date' => date('Y-m-d', strtotime('+4 day')),
+            'custom_reservation_number' => \App\Reservation::generateNewReservationNumber(),
+            'total_price' => 123,
+            'number_guests' => 2
+        ]);
+
+        $reservationFuture2 = \App\Reservation::create([
+            'hotel_id' => $hotelFranklin->id,
+            'booked_by_user_id' => $userBob->id,
+            'check_in_date' => date('Y-m-d', strtotime('+13 day')),
+            'check_out_date' => date('Y-m-d', strtotime('+19 day')),
+            'custom_reservation_number' => \App\Reservation::generateNewReservationNumber(),
+            'total_price' => 456,
+            'number_guests' => 1
+        ]);
     }
 }
