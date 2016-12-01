@@ -38,7 +38,6 @@ class HotelAgentController extends Controller
 
     public function archivedReservations()
     {
-        // TODO
         return view('hotel-portal.home.reservations.archived-reservations.index');
     }
 
@@ -50,11 +49,10 @@ class HotelAgentController extends Controller
     public function viewReservation(Request $request)
     {
         $reservation_number = Utility::getAlphaNumeric($request->input('searchInput'), 50);
-        $reservation = Reservation::where('hotel_id', auth()->user()->hotelAgent->hotel_id)
-            ->first();
+        $reservations = Reservation::findReservations(auth()->user()->hotelAgent->hotel_id, $reservation_number);
         
         return view('hotel-portal.home.reservations.view-reservation.index')
-            ->with('reservation', $reservation);
+            ->with('reservations', $reservations);
     }
     
 }
