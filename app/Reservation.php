@@ -25,6 +25,13 @@ class Reservation extends Model
         return $str;
     }
 
+    public static function findReservations($hotel_id, $reservation_number)
+    {
+        return self::where('hotel_id', $hotel_id)
+            ->where('custom_reservation_number', $reservation_number)
+            ->get();
+    }
+
     /*
      * Relationships go below
      */
