@@ -22,7 +22,7 @@
                                 <strong>{{ $reservation->hotelGuest->user->name }}</strong>
                             </td>
                             <td>
-                                {{ $reservation->hotelGuest->phone_number }}
+                                    {{ App\Utility::formatPrettyPhoneNumber($reservation->hotelGuest->phone_number) }}
                             </td>
                             <td>
                                 {{ $reservation->getNumberNights() }}
