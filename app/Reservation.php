@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Reservation extends Model
 {
     protected $fillable = [
-        'id', 'hotel_id', 'booked_by_user_id', 'check_in_date', 'check_out_date', 'number_guests', 'total_price', 'checked_in',
+        'id', 'hotel_id', 'room_id', 'booked_by_user_id', 'check_in_date', 'check_out_date', 'number_guests', 'total_price', 'checked_in',
         'custom_reservation_number', 'created_at'
     ];
 
@@ -38,12 +38,12 @@ class Reservation extends Model
 
     public function hotel()
     {
-        return $this->belongsTo('App\Hotel');
+        return $this->belongsTo('App\Hotel', 'id', 'hotel_id');
     }
 
     public function room()
     {
-        return $this->hasOne('App\Room');
+        return $this->hasOne('App\Room', 'id', 'room_id');
     }
 
     public function hotelGuest()

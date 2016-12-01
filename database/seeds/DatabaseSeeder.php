@@ -93,6 +93,7 @@ class DatabaseSeeder extends Seeder
 
         $reservationToday1 = \App\Reservation::create([
             'hotel_id' => $hotelFranklin->id,
+            'room_id' => $room201->id,
             'booked_by_user_id' => $userTim->id,
             'check_in_date' => date('Y-m-d'),
             'check_out_date' => date('Y-m-d', strtotime('+5 day')),
@@ -103,6 +104,7 @@ class DatabaseSeeder extends Seeder
 
         $reservationToday2 = \App\Reservation::create([
             'hotel_id' => $hotelFranklin->id,
+            'room_id' => $room201->id,
             'booked_by_user_id' => $userTim->id,
             'check_in_date' => date('Y-m-d'),
             'check_out_date' => date('Y-m-d', strtotime('+3 day')),
@@ -113,6 +115,7 @@ class DatabaseSeeder extends Seeder
 
         $reservationToday3 = \App\Reservation::create([
             'hotel_id' => $hotelFranklin->id,
+            'room_id' => $room201->id,
             'booked_by_user_id' => $userBob->id,
             'check_in_date' => date('Y-m-d'),
             'check_out_date' => date('Y-m-d', strtotime('+7 day')),
@@ -123,6 +126,7 @@ class DatabaseSeeder extends Seeder
 
         $reservationPast1 = \App\Reservation::create([
             'hotel_id' => $hotelFranklin->id,
+            'room_id' => $room201->id,
             'booked_by_user_id' => $userBob->id,
             'check_in_date' => date('Y-m-d', strtotime('-3 day')),
             'check_out_date' => date('Y-m-d', strtotime('+7 day')),
@@ -133,6 +137,7 @@ class DatabaseSeeder extends Seeder
 
         $reservationPast2 = \App\Reservation::create([
             'hotel_id' => $hotelFranklin->id,
+            'room_id' => $room201->id,
             'booked_by_user_id' => $userTim->id,
             'check_in_date' => date('Y-m-d', strtotime('-1 day')),
             'check_out_date' => date('Y-m-d', strtotime('+3 day')),
