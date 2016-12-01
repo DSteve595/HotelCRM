@@ -20,6 +20,7 @@ class CreateReservationsTable extends Migration
             $table->date('check_in_date');
             $table->date('check_out_date');
             $table->string('custom_reservation_number', 30);
+            $table->integer('number_guests');
             $table->decimal('total_price');
             $table->integer('checked_in')->default(0);
             $table->timestamps();
@@ -31,7 +32,8 @@ class CreateReservationsTable extends Migration
             'check_in_date' => date('Y-m-d'),
             'check_out_date' => date('Y-m-d', strtotime('+5 day')),
             'custom_reservation_number' => \App\Reservation::generateNewReservationNumber(),
-            'total_price' => 123
+            'total_price' => 123,
+            'number_guests' => 3
         ]);
 
         \App\Reservation::create([
@@ -40,7 +42,18 @@ class CreateReservationsTable extends Migration
             'check_in_date' => date('Y-m-d'),
             'check_out_date' => date('Y-m-d', strtotime('+3 day')),
             'custom_reservation_number' => \App\Reservation::generateNewReservationNumber(),
-            'total_price' => 123
+            'total_price' => 123,
+            'number_guests' => 1
+        ]);
+
+        \App\Reservation::create([
+            'hotel_id' => 2,
+            'booked_by_user_id' => 3,
+            'check_in_date' => date('Y-m-d'),
+            'check_out_date' => date('Y-m-d', strtotime('+7 day')),
+            'custom_reservation_number' => \App\Reservation::generateNewReservationNumber(),
+            'total_price' => 456,
+            'number_guests' => 4
         ]);
     }
 
