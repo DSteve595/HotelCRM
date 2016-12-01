@@ -21,7 +21,7 @@ class HotelGuestController extends Controller
         }
 
 
-        //return view('');
+        return view('guest-portal/home/account-settings/index');
     }
     
     

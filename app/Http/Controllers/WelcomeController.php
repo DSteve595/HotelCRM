@@ -82,4 +82,9 @@ class WelcomeController extends Controller
         if (User::where('email', $email)->count() > 0) return 0;
         return 1;
     }
+
+    public function guest()
+    {
+        return view('guest-portal.home.index');
+    }
 }

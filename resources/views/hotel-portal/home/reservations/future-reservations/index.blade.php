@@ -22,6 +22,7 @@
         $(document).ready(function() {
 
             // TODO: write some js maybe?
+            //<button type="button">do it</button>
 
         });
     </script>

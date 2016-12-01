@@ -5,7 +5,7 @@
         <div class="col-xs-12">
 
             <h3 class="page-header">
-                Dashboard <small>Today's Activity</small>
+                Future Reservations <small>Update success!</small>
             </h3>
 
         </div>
@@ -15,11 +15,19 @@
     <div class="row">
 
     </div> <!-- / .row -->
-    @include('guest-portal.home.dashboard.reservations-today-table')
 @endsection
 
 @section('more-js')
     <script type="text/javascript">
+        $(document).ready(function() {
 
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $('.has-popover').popover();
+        });
     </script>
 @endsection

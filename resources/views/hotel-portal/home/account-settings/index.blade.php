@@ -15,6 +15,7 @@
     <div class="row">
 
     </div> <!-- / .row -->
+
 @endsection
 
 @section('more-js')
