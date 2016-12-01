@@ -40,6 +40,10 @@ class User extends Authenticatable
      * Relationships go below
      */
 
+    public function hotelGuest()
+    {
+        return $this->hasOne('App\HotelGuest', 'user_id', 'id');
+    }
 
     public function hotelAgent()
     {

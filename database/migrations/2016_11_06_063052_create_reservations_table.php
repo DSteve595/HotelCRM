@@ -31,7 +31,16 @@ class CreateReservationsTable extends Migration
             'check_in_date' => date('Y-m-d'),
             'check_out_date' => date('Y-m-d', strtotime('+5 day')),
             'custom_reservation_number' => \App\Reservation::generateNewReservationNumber(),
-            'total_price' => 420
+            'total_price' => 123
+        ]);
+
+        \App\Reservation::create([
+            'hotel_id' => 2,
+            'booked_by_user_id' => 3,
+            'check_in_date' => date('Y-m-d'),
+            'check_out_date' => date('Y-m-d', strtotime('+3 day')),
+            'custom_reservation_number' => \App\Reservation::generateNewReservationNumber(),
+            'total_price' => 123
         ]);
     }
 

@@ -12,8 +12,8 @@ class HotelGuest extends Model
         'id', 'user_id', 'phone_number'
     ];
 
-    
-    
+
+
     /*
      * Relationships go below
      */
@@ -21,7 +21,12 @@ class HotelGuest extends Model
 
     public function reservation()
     {
-        return $this->hasMany('App\Reservation');
+        return $this->hasMany('App\Reservation', 'booked_by_user_id', 'user_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'id', 'user_id');
     }
 
 }

@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
 
-        $user = \App\User::create([
+        \App\User::create([
             'name' => 'Bradley Franklin',
             'username' => 'bradley',
             'password' => \App\Utility::getHashedPassword('bradley'),
@@ -32,12 +32,20 @@ class CreateUsersTable extends Migration
             'account_type' => \App\User::HOTEL_AGENT
         ]);
 
-        $guest = \App\User::create([
+        \App\User::create([
             'name' => 'Tim Jones',
             'username' => 'timjones',
             'password' => \App\Utility::getHashedPassword('timjones'),
             'email' => 'timjones@gmail.com',
             'account_type' => \App\User::HOTEL_GUEST
+        ]);
+
+        \App\User::create([
+            'name' => 'Steven Schoen',
+            'username' => 'steven',
+            'password' => \App\Utility::getHashedPassword('steven'),
+            'email' => 'steven@example.com',
+            'account_type' => \App\User::HOTEL_AGENT
         ]);
 
     }

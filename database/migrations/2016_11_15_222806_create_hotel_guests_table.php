@@ -24,6 +24,11 @@ class CreateHotelGuestsTable extends Migration
             'user_id' => 2,
             'phone_number' => '1233332323'
         ]);
+
+        \App\HotelGuest::create([
+            'user_id' => 3,
+            'phone_number' => '1414141414'
+        ]);
     }
 
     /**

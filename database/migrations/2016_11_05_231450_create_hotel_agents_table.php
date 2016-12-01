@@ -26,6 +26,12 @@ class CreateHotelAgentsTable extends Migration
             'hotel_id' => 1,
             'is_admin' => 1
         ]);
+
+        \App\HotelAgent::create([
+            'user_id' => 3,
+            'hotel_id' => 2,
+            'is_admin' => 1
+        ]);
     }
 
     /**

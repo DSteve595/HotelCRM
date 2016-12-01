@@ -46,7 +46,7 @@ class Reservation extends Model
 
     public function hotelGuest()
     {
-        return $this->belongsTo('App\HotelGuest', 'booked_by_user_id', 'id');
+        return $this->hasOne('App\HotelGuest', 'user_id', 'booked_by_user_id');
     }
 
 }
