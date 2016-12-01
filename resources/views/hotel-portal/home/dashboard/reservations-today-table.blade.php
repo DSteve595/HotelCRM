@@ -19,21 +19,19 @@
                     @foreach ($reservations as $reservation)
                         <tr class="reservation-rows" id="{{ $reservation->id }}" style="cursor: pointer;">
                             <td>
-                                <strong></strong>
+                                <strong>{{ $reservation->hotelGuest->user->name }}</strong>
                             </td>
                             <td>
-                                Admin
+                                {{ $reservation->hotelGuest->phone_number }}
                             </td>
                             <td>
-                                Jan 01, 2016
+                                {{ $reservation->getNumberNights() }}
                             </td>
                             <td>
-                                1 minute ago
+                                {{ $reservation->number_guests }}
                             </td>
                             <td>
-                                <div class="table__status online">
-                                    <i class="fa fa-circle-o"></i> Online
-                                </div>
+                                {{ $reservation->getStatus() }}
                             </td>
                         </tr>
                     @endforeach
