@@ -14,6 +14,14 @@ class HotelAgent extends Model
         'id', 'user_id', 'hotel_id', 'is_admin'
     ];
 
+    public function formatPrettyIsAdmin() {
+        if ($this->is_admin) {
+            return "Yes";
+        } else {
+            return "No";
+        }
+    }
+
 
     /*
      * Relationships go below
@@ -21,7 +29,7 @@ class HotelAgent extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User', 'id', 'user_id');
+        return $this->belongsTo('App\User', 'user_id', 'id');
     }
 
     public function hotel()

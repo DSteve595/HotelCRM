@@ -22,23 +22,23 @@ class DatabaseSeeder extends Seeder
         // Users
 
         $userBradley = \App\User::create([
-            'name' => 'Bradley Franklin',
+            'name' => 'Bradley Admin',
             'username' => 'bradley',
             'password' => \App\Utility::getHashedPassword('bradley'),
-            'email' => 'bradley@gmail.com',
+            'email' => 'bradley@example.com',
             'account_type' => \App\User::HOTEL_AGENT
         ]);
 
         $userTim = \App\User::create([
-            'name' => 'Tim Jones',
-            'username' => 'timjones',
-            'password' => \App\Utility::getHashedPassword('timjones'),
-            'email' => 'timjones@gmail.com',
+            'name' => 'Tim Guest',
+            'username' => 'tim',
+            'password' => \App\Utility::getHashedPassword('tim'),
+            'email' => 'timjones@example.com',
             'account_type' => \App\User::HOTEL_GUEST
         ]);
 
         $userSteven = \App\User::create([
-            'name' => 'Steven Schoen',
+            'name' => 'Steven Admin',
             'username' => 'steven',
             'password' => \App\Utility::getHashedPassword('steven'),
             'email' => 'steven@example.com',
@@ -46,25 +46,40 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $userBob = \App\User::create([
-            'name' => 'Bob Smith',
-            'username' => 'bobsmith',
-            'password' => \App\Utility::getHashedPassword('bobsmith'),
-            'email' => 'bobsmith@gmail.com',
+            'name' => 'Bob Guest',
+            'username' => 'bob',
+            'password' => \App\Utility::getHashedPassword('bob'),
+            'email' => 'bob@example.com',
             'account_type' => \App\User::HOTEL_GUEST
         ]);
 
-        // Hotel agents
+        $userSarah = \App\User::create([
+            'name' => 'Sarah Agent',
+            'username' => 'sarah',
+            'password' => \App\Utility::getHashedPassword('sarah'),
+            'email' => 'sarah@example.com',
+            'account_type' => \App\User::HOTEL_AGENT
+        ]);
 
-        $agentBradley = \App\HotelAgent::create([
+        // Hotel admins
+
+        $adminBradley = \App\HotelAgent::create([
             'user_id' => $userBradley->id,
             'hotel_id' => $hotelFranklin->id,
             'is_admin' => 1
         ]);
 
-        $agentSteven = \App\HotelAgent::create([
+        $adminSteven = \App\HotelAgent::create([
             'user_id' => $userSteven->id,
             'hotel_id' => $hotelFranklin->id,
             'is_admin' => 1
+        ]);
+
+        // Hotel agents
+
+        $agentSarah = \App\HotelAgent::create([
+            'user_id' => $userSarah->id,
+            'hotel_id' => $hotelFranklin->id
         ]);
 
         // Hotel guests

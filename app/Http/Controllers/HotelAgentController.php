@@ -64,5 +64,14 @@ class HotelAgentController extends Controller
         return view('hotel-portal.home.reservations.view-reservation.index')
             ->with('reservations', $reservations);
     }
+
+    public function manageUsers()
+    {
+        $hotelAgents = HotelAgent::where('hotel_id', auth()->user()->hotelAgent->hotel_id)
+            ->get();
+
+        return view('hotel-portal.home.management.manage-users.index')
+            ->with('hotelAgents', $hotelAgents);
+    }
     
 }
