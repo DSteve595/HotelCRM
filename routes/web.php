@@ -16,6 +16,7 @@ Route::get('/', 'WelcomeController@index');
 
 // Welcome page for hotel guests
 Route::get('/guest', 'WelcomeController@guest');
+//Takes guests to the search page
 
 // Sign up routes for a new hotel company
 Route::group(['prefix' => 'sign-up'], function() {
