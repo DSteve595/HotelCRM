@@ -13,7 +13,7 @@ class BookingController extends Controller
 
     public function index(Request $request)
     {
-
+        return view('guest-portal.reservation-system.search');
     }
 
     public function results(Request $request)
