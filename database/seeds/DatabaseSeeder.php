@@ -79,6 +79,16 @@ class DatabaseSeeder extends Seeder
             'phone_number' => '9541234567'
         ]);
 
+        // Rooms
+
+        $room201 = \App\Room::create([
+            'room_number' => '201',
+            'hotel_id' => $hotelFranklin->id,
+            'is_smoking' => 1,
+            'max_guests' => 2,
+            'nightly_price' => 140
+        ]);
+
         // Reservations
 
         $reservationToday1 = \App\Reservation::create([
