@@ -14,7 +14,7 @@
             </ul>
         </li>
         <li {{ \App\Utility::handleActiveNavigation('/account-settings') }}>
-            <a  {{ \App\Utility::handleActiveNavigation('/account-settings') }} href="{{ url('home/account-settings') }}"><i class="fa fa-gear"></i> Account Settings</a>
+            <a  {{ \App\Utility::handleActiveNavigation('/account-settings') }} href="{{ url('home/account-settings') }}"><i class="fa fa-gear"></i> Account settings</a>
         </li>
         <li class="sidebar-nav__heading">Hotel Management</li>
         <li {{ \App\Utility::handleActiveNavigation('/manage-users') }}>
@@ -24,7 +24,7 @@
             <a {{ \App\Utility::handleActiveNavigation('/manage-rooms') }} href="{{ url('home/manage-rooms') }}"><i class="fa fa-cloud"></i> Manage rooms</a>
         </li>
         <li {{ \App\Utility::handleActiveNavigation('/hotel-settings') }}>
-            <a {{ \App\Utility::handleActiveNavigation('/hotel-settings') }} href="{{ url('home/hotel-settings') }}"><i class="fa fa-hotel"></i> Hotel Settings</a>
+            <a {{ \App\Utility::handleActiveNavigation('/hotel-settings') }} href="{{ url('home/hotel-settings') }}"><i class="fa fa-hotel"></i> Hotel settings</a>
         </li>
     </ul>
 </nav>
