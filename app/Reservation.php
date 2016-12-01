@@ -53,7 +53,7 @@ class Reservation extends Model
 
     public function hotel()
     {
-        return $this->belongsTo('App\Hotel', 'id', 'hotel_id');
+        return $this->belongsTo('App\Hotel');
     }
 
     public function room()

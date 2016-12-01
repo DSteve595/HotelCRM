@@ -16,6 +16,8 @@
                 <thead>
                 <tr>
                     <th>Room number</th>
+                    <th>Times booked</th>
+                    <th>Booked for today</th>
                     <th>Smoking</th>
                 </tr>
                 </thead>
@@ -24,6 +26,12 @@
                     <tr>
                         <td>
                             <strong>{{ $room->room_number }}</strong>
+                        </td>
+                        <td>
+                            {{ sizeof($room->reservations) }}
+                        </td>
+                        <td>
+                            {{ \App\Utility::formatPrettyBooleanAsYesNo($room->getReservationBookedForToday()->isEmpty()) }}
                         </td>
                         <td>
                             {{ \App\Utility::formatPrettyBooleanAsYesNo($room->is_smoking) }}
