@@ -30,6 +30,12 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function updatePassword($user_id, $new_password)
+    {
+        self::where('id', $user_id)
+            ->update(['password' => Utility::getHashedPassword($new_password)]);
+    }
+
     /*
      * Relationships go below
      */

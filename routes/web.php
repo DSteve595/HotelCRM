@@ -59,6 +59,10 @@ Route::group(['prefix' => 'reservations'], function() {
     // Main dashboard for a hotel guest: /reservations
     Route::get('', 'HotelGuestController@index');
 
+    // Account settings
+    Route::get('account-settings', 'HotelGuestController@index');
+    Route::post('account-settings', 'HotelGuestController@index');
+
 });
 
 // Routes for a guest booking a room

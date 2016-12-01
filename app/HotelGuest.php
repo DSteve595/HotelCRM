@@ -13,6 +13,7 @@ class HotelGuest extends Model
     ];
 
     
+    
     /*
      * Relationships go below
      */
