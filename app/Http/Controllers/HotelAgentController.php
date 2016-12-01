@@ -39,7 +39,7 @@ class HotelAgentController extends Controller
     public function archivedReservations()
     {
         // TODO
-        return 'here';
+        return view('hotel-portal.home.reservations.archived-reservations.index');
     }
 
     public function accountSettings()

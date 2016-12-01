@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-xs-12">
             <h3 class="page-header">
-                Reservation <small>View reservation</small>
+                Reservation <small>Archived reservations</small>
             </h3>
         </div>
     </div>
