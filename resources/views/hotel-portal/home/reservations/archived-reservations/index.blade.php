@@ -16,10 +16,11 @@
                 <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Phone number</th>
+                    <th>Room number</th>
                     <th>Check-in date</th>
                     <th># nights</th>
                     <th># guests</th>
+                    <th>Phone number</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -29,7 +30,7 @@
                             <strong>{{ $reservation->hotelGuest->user->name }}</strong>
                         </td>
                         <td>
-                            {{ App\Utility::formatPrettyPhoneNumber($reservation->hotelGuest->phone_number) }}
+                            {{ $reservation->room->room_number }}
                         </td>
                         <td>
                             {{ $reservation->check_in_date }}
@@ -39,6 +40,9 @@
                         </td>
                         <td>
                             {{ $reservation->number_guests }}
+                        </td>
+                        <td>
+                            {{ App\Utility::formatPrettyPhoneNumber($reservation->hotelGuest->phone_number) }}
                         </td>
                     </tr>
                 @endforeach

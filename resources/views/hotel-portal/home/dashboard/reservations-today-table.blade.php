@@ -9,20 +9,24 @@
                     <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Phone number</th>
+                        <th>Room number</th>
+                        <th>Check-in date</th>
                         <th># nights</th>
                         <th># guests</th>
-                        <th>Status</th>
+                        <th>Phone number</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach ($reservations as $reservation)
-                        <tr class="reservation-rows" id="{{ $reservation->id }}" style="cursor: pointer;">
+                        <tr>
                             <td>
                                 <strong>{{ $reservation->hotelGuest->user->name }}</strong>
                             </td>
                             <td>
-                                    {{ App\Utility::formatPrettyPhoneNumber($reservation->hotelGuest->phone_number) }}
+                                {{ $reservation->room->room_number }}
+                            </td>
+                            <td>
+                                {{ $reservation->check_in_date }}
                             </td>
                             <td>
                                 {{ $reservation->getNumberNights() }}
@@ -31,7 +35,7 @@
                                 {{ $reservation->number_guests }}
                             </td>
                             <td>
-                                {{ $reservation->getStatus() }}
+                                {{ App\Utility::formatPrettyPhoneNumber($reservation->hotelGuest->phone_number) }}
                             </td>
                         </tr>
                     @endforeach
