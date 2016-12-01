@@ -55,6 +55,9 @@ Route::group(['prefix' => 'home'], function() {
     // Manage a hotel's users (for admins)
     Route::get('manage-users', 'HotelAgentController@manageUsers');
 
+    // Manage a hotel's rooms (for admins)
+    Route::get('manage-rooms', 'HotelAgentController@manageRooms');
+
 });
 
 // Routes for when a guest is logged in

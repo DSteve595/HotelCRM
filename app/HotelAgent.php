@@ -14,15 +14,6 @@ class HotelAgent extends Model
         'id', 'user_id', 'hotel_id', 'is_admin'
     ];
 
-    public function formatPrettyIsAdmin() {
-        if ($this->is_admin) {
-            return "Yes";
-        } else {
-            return "No";
-        }
-    }
-
-
     /*
      * Relationships go below
      */

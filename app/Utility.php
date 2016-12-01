@@ -19,6 +19,14 @@ class Utility extends Model
         return date("m-d-y g:i a", strtotime($datetime) + (3600 * $hour_offset));
     }
 
+    public static function formatPrettyBooleanAsYesNo($boolean) {
+        if ($boolean) {
+            return "Yes";
+        } else {
+            return "No";
+        }
+    }
+
     public static function extractNumbers($str, $str_between_numbers = '')
     {
         $matches = [];

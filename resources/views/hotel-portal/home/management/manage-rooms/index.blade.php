@@ -4,9 +4,9 @@
     <div class="row">
         <div class="col-xs-12">
             <h3 class="page-header">
-                Manage users
+                Manage rooms
                 <br/>
-                <small>See and edit accounts for your hotel's employees</small>
+                <small>See and edit the rooms in your hotel</small>
             </h3>
         </div>
     </div>
@@ -15,18 +15,18 @@
             <table class="table" id="datatables__example">
                 <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Has administrative rights</th>
+                    <th>Room number</th>
+                    <th>Smoking</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach ($hotelAgents as $hotelAgent)
+                @foreach ($rooms as $room)
                     <tr>
                         <td>
-                            <strong>{{ $hotelAgent->user->name }}</strong>
+                            <strong>{{ $room->room_number }}</strong>
                         </td>
                         <td>
-                            {{ \App\Utility::formatPrettyBooleanAsYesNo($hotelAgent->is_admin) }}
+                            {{ \App\Utility::formatPrettyBooleanAsYesNo($room->is_smoking) }}
                         </td>
                     </tr>
                 @endforeach

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Hotel;
 use App\HotelAgent;
 use App\Reservation;
+use App\Room;
 use App\User;
 use App\Utility;
 use Illuminate\Http\Request;
@@ -72,6 +73,15 @@ class HotelAgentController extends Controller
 
         return view('hotel-portal.home.management.manage-users.index')
             ->with('hotelAgents', $hotelAgents);
+    }
+
+    public function manageRooms()
+    {
+        $rooms = Room::where('hotel_id', auth()->user()->hotelAgent->hotel_id)
+            ->get();
+
+        return view('hotel-portal.home.management.manage-rooms.index')
+            ->with('rooms', $rooms);
     }
     
 }
