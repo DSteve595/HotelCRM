@@ -28,16 +28,6 @@
     <link rel="stylesheet" href="{{ @asset('css/theme-skins/dark.css') }}">
     <link rel="stylesheet" href="{{ @asset('css/custom.css') }}">
     <link rel="stylesheet" href="{{ @asset('css/welcome.css') }}">
-
-    <script type="text/javascript" src="{{ @asset('plugins/jquery/jquery.min.js') }}"></script>
-    <script type="text/javascript" src="{{ @asset('plugins/jquery/jquery-migrate.min.js') }}"></script>
-    <script type="text/javascript" src="{{ @asset('plugins/bootstrap/js/bootstrap.min.js') }}"></script>
-    <!-- JS Implementing Plugins -->
-    <script type="text/javascript" src="{{ @asset('plugins/back-to-top.js') }}"></script>
-    <script type="text/javascript" src="{{ @asset('plugins/counter/jquery.counterup.min.js') }}"></script>
-    <!-- JS Customization -->
-    <script type="text/javascript" src="{{ @asset('js/custom.js') }}"></script>
-
 </head>
 
 <style>
@@ -47,8 +37,16 @@
 <body class="@yield('theme')">
 <div class="wrapper">
     @yield('content')
+
 </div>
-
-
-
+<script type="text/javascript" src="{{ @asset('plugins/jquery/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ @asset('plugins/jquery/jquery-migrate.min.js') }}"></script>
+<script type="text/javascript" src="{{ @asset('plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" src="{{ @asset('plugins/back-to-top.js') }}"></script>
+<script type="text/javascript" src="{{ @asset('plugins/counter/jquery.counterup.min.js') }}"></script>
+<!-- JS Customization -->
+<script type="text/javascript" src="{{ @asset('js/custom.js') }}"></script>
+@yield('additional-js')
 </body>
+</html>

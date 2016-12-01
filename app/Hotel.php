@@ -30,4 +30,22 @@ class Hotel extends Model
         return $this->hasMany('App\Reservation');
     }
     
+    public static function getAvailableRooms($hotel_id, $my_check_in, $my_check_out)
+    {
+        $room_ids_to_exclude = Reservation::where('hotel_id', $hotel_id)
+            ->where(function($query) use ($my_check_in, $my_check_out) {
+                $query->orWhere(function($query) use ($my_check_in, $my_check_out) {
+                    $query->whereBetween('check_in_date', [$my_check_in, $my_check_out]);
+                });
+                $query->orWhere(function($query) use ($my_check_in, $my_check_out) {
+                    $query->whereBetween('check_out_date', [$my_check_in, $my_check_out]);
+                });
+            })
+            ->pluck('room_id')
+            ->unique('room_id');
+        $rooms = Room::whereNotIn('id', $room_ids_to_exclude)
+            ->get();
+        return $rooms;
+    }
+    
 }
