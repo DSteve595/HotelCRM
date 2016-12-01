@@ -21,7 +21,7 @@
                         @foreach ($reservations as $reservation)
                             <tr>
                                 <td>
-                                    <strong>{{ $reservation->hotelGuest->name }}</strong>
+                                    <strong></strong>
                                 </td>
                                 <td>
                                     Admin

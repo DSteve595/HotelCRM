@@ -16,6 +16,11 @@ class Reservation extends Model
 
     }
 
+    public function getBookingUsersName($id)
+    {
+
+    }
+
     public static function generateNewReservationNumber()
     {
         do {

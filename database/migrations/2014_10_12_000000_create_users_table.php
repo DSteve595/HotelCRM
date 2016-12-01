@@ -25,10 +25,10 @@ class CreateUsersTable extends Migration
         });
 
         $user = \App\User::create([
-            'name' => 'Bob Franklin',
-            'username' => 'bobfranklin',
-            'password' => \App\Utility::getHashedPassword('bobfranklin'),
-            'email' => 'bobfranklin@gmail.com',
+            'name' => 'Bradley Franklin',
+            'username' => 'bradley',
+            'password' => \App\Utility::getHashedPassword('bradley'),
+            'email' => 'bradley@gmail.com',
             'account_type' => \App\User::HOTEL_AGENT
         ]);
 
