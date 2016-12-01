@@ -38,7 +38,12 @@ class HotelAgentController extends Controller
 
     public function archivedReservations()
     {
-        return view('hotel-portal.home.reservations.archived-reservations.index');
+        $reservations = Reservation::where('hotel_id', auth()->user()->hotelAgent->hotel_id)
+            ->where('check_in_date', '<', date('Y-m-d'))
+            ->get();
+	    
+	    return view('hotel-portal.home.reservations.archived-reservations.index')
+            ->with('reservations', $reservations);
     }
 
     public function accountSettings()
