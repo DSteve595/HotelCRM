@@ -8,6 +8,7 @@
                 <table class="table" id="datatables__example">
                     <thead>
                     <tr>
+                        <th>Reservation #</th>
                         <th>Name</th>
                         <th>Room number</th>
                         <th>Check-in date</th>
@@ -20,6 +21,9 @@
                     <tbody>
                     @foreach ($reservations as $reservation)
                         <tr class="reservation-rows" id="{{ $reservation->id }}" style="cursor: pointer;">
+                            <td>
+                                {{ $reservation->custom_reservation_number }}
+                            </td>
                             <td>
                                 <strong>{{ $reservation->hotelGuest->user->name }}</strong>
                             </td>

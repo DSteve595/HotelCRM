@@ -66,7 +66,7 @@ class Utility extends Model
     public static function generateRandomString($min_length = 15, $max_length = 30, $alpha_num_only = false)
     {
         $length = rand($min_length, $max_length);
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         if (!$alpha_num_only) $characters .= '!@#$^&*()';
         $characters_length = strlen($characters);
         $random_string = '';
