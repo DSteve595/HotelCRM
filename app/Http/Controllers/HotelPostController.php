@@ -26,4 +26,9 @@ class HotelPostController extends Controller
             ];
     }
 
+    public function checkIn(Request $request)
+    {
+        Reservation::checkInReservation(Utility::filterRowId($request->input('id')));
+    }
+
 }

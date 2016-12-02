@@ -122,6 +122,7 @@
     $(document).ready(function() {
         $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
 
+        var activeReservationId = 0;
         var reservationRows = $(".reservation-rows");
         var viewReservationModal = $("#viewReservationModal");
 
@@ -136,7 +137,11 @@
         var modalCheckOutBtn = $("#modalCheckOutBtn");
 
         modalCheckInBtn.click(function() {
+            console.log(activeReservationId);
+            $.post('{{ @url('hotel-post/check-in') }}', { id: activeReservationId })
+                    .done(function(data) {
 
+                    });
         });
 
         viewReservationModal.on('hidden.bs.modal', function() {
@@ -146,10 +151,12 @@
             viewReservationModalNights.val('');
             viewReservationModalGuests.val('');
             viewReservationModalStatus.val('');
+            activeReservationId = 0;
         });
 
         reservationRows.click(function() {
 
+            activeReservationId = $(this).attr('id');
             // post the form
             $.post('{{ @url('hotel-post/get-reservation') }}', { id: $(this).attr('id') })
                     .done(function(data) {

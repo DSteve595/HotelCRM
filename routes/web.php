@@ -59,6 +59,10 @@ Route::group(['prefix' => 'home'], function() {
     // Manage a hotel's rooms (for admins)
     Route::get('manage-rooms', 'HotelAgentController@manageRooms');
 
+    // Account settings
+    Route::get('hotel-settings', 'HotelAgentController@hotelSettings');
+    Route::post('hotel-settings', 'HotelAgentController@hotelSettings');
+
 });
 
 // Routes for when a guest is logged in
@@ -104,6 +108,9 @@ Route::group(['prefix' => 'hotel-post'], function() {
 
     // Route to view a reservation for the modal
     Route::post('get-reservation', 'HotelPostController@getReservation');
+
+    // Check someone in
+    Route::post('check-in', 'HotelPostController@checkIn');
 
 });
 

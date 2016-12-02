@@ -14,11 +14,12 @@
                         <th># nights</th>
                         <th># guests</th>
                         <th>Phone number</th>
+                        <th>Status</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach ($reservations as $reservation)
-                        <tr>
+                        <tr class="reservation-rows" id="{{ $reservation->id }}" style="cursor: pointer;">
                             <td>
                                 <strong>{{ $reservation->hotelGuest->user->name }}</strong>
                             </td>
@@ -36,6 +37,11 @@
                             </td>
                             <td>
                                 {{ App\Utility::formatPrettyPhoneNumber($reservation->hotelGuest->phone_number) }}
+                            </td>
+                            <td>
+                                {!! $reservation->checked_in == 1 ?
+                                '<button type="button" style="cursor:default;" class="btn btn-success btn-sm">Checked in</button>' :
+                                '<button type="button" style="cursor:default;" class="btn btn-danger btn-sm">Not checked in</button>' !!}
                             </td>
                         </tr>
                     @endforeach

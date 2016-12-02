@@ -112,4 +112,9 @@ class HotelAgentController extends Controller
             ->with('rooms', $rooms);
     }
     
+    public function hotelSettings(Request $request)
+    {
+        return view('hotel-portal.home.account-settings.index');
+    }
+    
 }

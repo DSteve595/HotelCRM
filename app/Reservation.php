@@ -47,6 +47,12 @@ class Reservation extends Model
             ->first();
     }
 
+    public static function checkInReservation($id)
+    {
+        return Reservation::where('id', $id)
+            ->update(['checked_in' => 1]);
+    }
+
     /*
      * Relationships go below
      */
