@@ -94,7 +94,7 @@ class HotelAgentController extends Controller
 
 
             User::destroy($user_id);
-            HotelAgent::destroy($user_id);
+            HotelAgent::destroy($request->input('deleteAgent'));
         }
 
         $hotelAgents = HotelAgent::where('hotel_id', auth()->user()->hotelAgent->hotel_id)
