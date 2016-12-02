@@ -110,7 +110,7 @@ Route::group(['prefix' => 'hotel-post'], function() {
     Route::post('get-reservation', 'HotelPostController@getReservation');
 
     // Check someone in
-    Route::post('check-in', 'HotelPostController@checkIn');
+    Route::post('check-in', 'HotelPostController@toggleIsCheckedIn');
 
 });
 

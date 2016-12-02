@@ -26,9 +26,10 @@ class HotelPostController extends Controller
             ];
     }
 
-    public function checkIn(Request $request)
+    public function toggleIsCheckedIn(Request $request)
     {
-        Reservation::checkInReservation(Utility::filterRowId($request->input('id')));
+        $status = $request->input('status');
+        Reservation::checkInReservation(Utility::filterRowId($request->input('id')), $status);
     }
 
 }

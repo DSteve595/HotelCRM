@@ -138,7 +138,15 @@
 
         modalCheckInBtn.click(function() {
             console.log(activeReservationId);
-            $.post('{{ @url('hotel-post/check-in') }}', { id: activeReservationId })
+            $.post('{{ @url('hotel-post/check-in') }}', { id: activeReservationId, status: 1 })
+                    .done(function(data) {
+                        location.href = '{{ @url('home') }}';
+                    });
+        });
+
+        modalCheckOutBtn.click(function() {
+            console.log(activeReservationId);
+            $.post('{{ @url('hotel-post/check-in') }}', { id: activeReservationId, status: 0 })
                     .done(function(data) {
                         location.href = '{{ @url('home') }}';
                     });
