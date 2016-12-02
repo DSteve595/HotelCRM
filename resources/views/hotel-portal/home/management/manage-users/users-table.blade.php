@@ -18,11 +18,15 @@
                         {{ \App\Utility::formatPrettyBooleanAsYesNo($hotelAgent->is_admin) }}
                     </td>
                     <td>
-                        <form action="{{ @url('home/manage-users') }}" method="post">
-                            {{ csrf_field() }}
-                            <input type="hidden" name="deleteAgent" value="{{ $hotelAgent->id }}">
-                            <button type="submit" class="btn btn-danger btn-sm">Delete?</button>
-                        </form>
+                        @if ($hotelAgent->user_id != auth()->user()->hotelAgent->user_id)
+                            <form action="{{ @url('home/manage-users') }}" method="post">
+                                {{ csrf_field() }}
+                                <input type="hidden" name="deleteAgent" value="{{ $hotelAgent->id }}">
+                                <button type="submit" class="btn btn-danger btn-sm">Delete?</button>
+                            </form>
+                        @else
+                            <button type="button" class="btn btn-danger btn-sm" disabled>Delete?</button>
+                        @endif
                     </td>
                 </tr>
             @endforeach

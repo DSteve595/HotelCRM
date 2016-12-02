@@ -90,10 +90,11 @@ class HotelAgentController extends Controller
             ]);
         }
         else if ($request->has('deleteAgent')) {
-            $hotel_agent = HotelAgent::where('id', $request->input('deleteAgent'))
-                ->first();
-            User::destroy($hotel_agent->user_id);
-            HotelAgent::destroy($hotel_agent->id);
+            $user_id = HotelAgent::where('id', $request->input('deleteAgent'))->value('user_id');
+
+
+            User::destroy($user_id);
+            HotelAgent::destroy($user_id);
         }
 
         $hotelAgents = HotelAgent::where('hotel_id', auth()->user()->hotelAgent->hotel_id)
