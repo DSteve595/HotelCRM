@@ -140,7 +140,7 @@
             console.log(activeReservationId);
             $.post('{{ @url('hotel-post/check-in') }}', { id: activeReservationId })
                     .done(function(data) {
-
+                        location.href = '{{ @url('home') }}';
                     });
         });
 
