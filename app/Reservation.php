@@ -36,7 +36,7 @@ class Reservation extends Model
     public static function findReservations($hotel_id, $reservation_number)
     {
         return self::where('hotel_id', $hotel_id)
-            ->where('custom_reservation_number', $reservation_number)
+            ->where('custom_reservation_number', 'like', '%'.$reservation_number.'%')
             ->get();
     }
 

@@ -59,9 +59,9 @@ class HotelAgentController extends Controller
 
     public function viewReservation(Request $request)
     {
-        $reservation_number = Utility::getAlphaNumeric($request->input('searchInput'), 50);
+        $reservation_number = $request->input('searchInput');
         $reservations = Reservation::findReservations(auth()->user()->hotelAgent->hotel_id, $reservation_number);
-        
+
         return view('hotel-portal.home.reservations.view-reservation.index')
             ->with('reservations', $reservations);
     }
