@@ -66,8 +66,36 @@ class HotelAgentController extends Controller
             ->with('reservations', $reservations);
     }
 
-    public function manageUsers()
+    public function manageUsers(Request $request)
     {
+        if ($request->has('name')) {
+            $name = $request->input('name');
+            $email = $request->input('email');
+            $username = $request->input('username');
+            $password = $request->input('password');
+            $isAdmin = $request->input('isAdmin');
+
+            $user = User::create([
+                'name' => $name,
+                'username' => $username,
+                'password' => $password,
+                'email' => $email,
+                'account_type' => User::HOTEL_AGENT
+            ]);
+
+            $hotel_agent = HotelAgent::create([
+                'user_id' => $user->id,
+                'hotel_id' => auth()->user()->hotelAgent->hotel_id,
+                'is_admin' => $isAdmin ? 1 : 0
+            ]);
+        }
+        else if ($request->has('deleteAgent')) {
+            $hotel_agent = HotelAgent::where('id', $request->input('deleteAgent'))
+                ->first();
+            User::destroy($hotel_agent->user_id);
+            HotelAgent::destroy($hotel_agent->id);
+        }
+
         $hotelAgents = HotelAgent::where('hotel_id', auth()->user()->hotelAgent->hotel_id)
             ->get();
 

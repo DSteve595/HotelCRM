@@ -10,28 +10,17 @@
             </h3>
         </div>
     </div>
-    <div class="row" style="padding-left:24px">
-        <div class="table-responsive">
-            <table class="table" id="datatables__example">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Has administrative rights</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach ($hotelAgents as $hotelAgent)
-                    <tr>
-                        <td>
-                            <strong>{{ $hotelAgent->user->name }}</strong>
-                        </td>
-                        <td>
-                            {{ \App\Utility::formatPrettyBooleanAsYesNo($hotelAgent->is_admin) }}
-                        </td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
+    <div class="row">
+        <div class="col-xs-12 col-sm-8">
+            <div class="table-responsive">
+                @include('hotel-portal.home.management.manage-users.users-table')
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-4">
+            @if (auth()->user()->hotelAgent->is_admin)
+                @include('hotel-portal.home.management.manage-users.edit-users')
+            @endif
         </div>
     </div>
 @endsection
