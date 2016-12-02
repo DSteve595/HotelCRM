@@ -13,20 +13,18 @@ class HotelGuest extends Model
     ];
 
 
-
     /*
      * Relationships go below
      */
 
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'user_id', 'id');
+    }
 
     public function reservation()
     {
         return $this->hasMany('App\Reservation', 'booked_by_user_id', 'user_id');
-    }
-
-    public function user()
-    {
-        return $this->belongsTo('App\User', 'user_id', 'id');
     }
 
 }

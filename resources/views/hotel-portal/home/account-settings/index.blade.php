@@ -5,7 +5,9 @@
         <div class="col-xs-12">
 
             <h3 class="page-header">
-                Account settings <small>Update success!</small>
+                Account settings
+                <br/>
+                <small>Update success!</small>
             </h3>
 
         </div>

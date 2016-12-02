@@ -4,9 +4,9 @@
     <div class="row">
         <div class="col-xs-12">
             <h3 class="page-header">
-                Future reservations
+                Manage rooms
                 <br/>
-                <small>All reservations booked for future dates and today</small>
+                <small>See and edit the rooms in your hotel</small>
             </h3>
         </div>
     </div>
@@ -15,34 +15,26 @@
             <table class="table" id="datatables__example">
                 <thead>
                 <tr>
-                    <th>Name</th>
                     <th>Room number</th>
-                    <th>Check-in date</th>
-                    <th># nights</th>
-                    <th># guests</th>
-                    <th>Phone number</th>
+                    <th>Times booked</th>
+                    <th>Booked for today</th>
+                    <th>Smoking</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach ($reservations as $reservation)
+                @foreach ($rooms as $room)
                     <tr>
                         <td>
-                            <strong>{{ $reservation->hotelGuest->user->name }}</strong>
+                            <strong>{{ $room->room_number }}</strong>
                         </td>
                         <td>
-                            {{ $reservation->room->room_number }}
+                            {{ sizeof($room->reservations) }}
                         </td>
                         <td>
-                            {{ $reservation->check_in_date }}
+                            {{ \App\Utility::formatPrettyBooleanAsYesNo($room->getReservationBookedForToday()->isEmpty()) }}
                         </td>
                         <td>
-                            {{ $reservation->getNumberNights() }}
-                        </td>
-                        <td>
-                            {{ $reservation->number_guests }}
-                        </td>
-                        <td>
-                            {{ App\Utility::formatPrettyPhoneNumber($reservation->hotelGuest->phone_number) }}
+                            {{ \App\Utility::formatPrettyBooleanAsYesNo($room->is_smoking) }}
                         </td>
                     </tr>
                 @endforeach
@@ -57,7 +49,6 @@
         $(document).ready(function() {
 
             // TODO: write some js maybe?
-            //<button type="button">do it</button>
 
         });
     </script>

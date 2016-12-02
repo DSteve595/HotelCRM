@@ -19,26 +19,31 @@ class DatabaseSeeder extends Seeder
             'primary_phone_number' => '1231231234'
         ]);
 
+        $hotelAnother = \App\Hotel::create([
+            'name' => 'Another Hotel',
+            'primary_phone_number' => '1231231234'
+        ]);
+
         // Users
 
         $userBradley = \App\User::create([
-            'name' => 'Bradley Franklin',
+            'name' => 'Bradley Admin',
             'username' => 'bradley',
             'password' => \App\Utility::getHashedPassword('bradley'),
-            'email' => 'bradley@gmail.com',
+            'email' => 'bradley@example.com',
             'account_type' => \App\User::HOTEL_AGENT
         ]);
 
         $userTim = \App\User::create([
-            'name' => 'Tim Jones',
-            'username' => 'timjones',
-            'password' => \App\Utility::getHashedPassword('timjones'),
-            'email' => 'timjones@gmail.com',
+            'name' => 'Tim Guest',
+            'username' => 'tim',
+            'password' => \App\Utility::getHashedPassword('tim'),
+            'email' => 'timjones@example.com',
             'account_type' => \App\User::HOTEL_GUEST
         ]);
 
         $userSteven = \App\User::create([
-            'name' => 'Steven Schoen',
+            'name' => 'Steven Admin',
             'username' => 'steven',
             'password' => \App\Utility::getHashedPassword('steven'),
             'email' => 'steven@example.com',
@@ -46,25 +51,40 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $userBob = \App\User::create([
-            'name' => 'Bob Smith',
-            'username' => 'bobsmith',
-            'password' => \App\Utility::getHashedPassword('bobsmith'),
-            'email' => 'bobsmith@gmail.com',
+            'name' => 'Bob Guest',
+            'username' => 'bob',
+            'password' => \App\Utility::getHashedPassword('bob'),
+            'email' => 'bob@example.com',
             'account_type' => \App\User::HOTEL_GUEST
         ]);
 
-        // Hotel agents
+        $userSarah = \App\User::create([
+            'name' => 'Sarah Agent',
+            'username' => 'sarah',
+            'password' => \App\Utility::getHashedPassword('sarah'),
+            'email' => 'sarah@example.com',
+            'account_type' => \App\User::HOTEL_AGENT
+        ]);
 
-        $agentBradley = \App\HotelAgent::create([
+        // Hotel admins
+
+        $adminBradley = \App\HotelAgent::create([
             'user_id' => $userBradley->id,
             'hotel_id' => $hotelFranklin->id,
             'is_admin' => 1
         ]);
 
-        $agentSteven = \App\HotelAgent::create([
+        $adminSteven = \App\HotelAgent::create([
             'user_id' => $userSteven->id,
             'hotel_id' => $hotelFranklin->id,
             'is_admin' => 1
+        ]);
+
+        // Hotel agents
+
+        $agentSarah = \App\HotelAgent::create([
+            'user_id' => $userSarah->id,
+            'hotel_id' => $hotelFranklin->id
         ]);
 
         // Hotel guests
@@ -86,7 +106,31 @@ class DatabaseSeeder extends Seeder
             'hotel_id' => $hotelFranklin->id,
             'is_smoking' => 1,
             'max_guests' => 2,
-            'nightly_price' => 140
+            'nightly_price' => 130
+        ]);
+
+        $room202 = \App\Room::create([
+            'room_number' => '202',
+            'hotel_id' => $hotelFranklin->id,
+            'is_smoking' => 1,
+            'max_guests' => 2,
+            'nightly_price' => 130
+        ]);
+
+        $room203 = \App\Room::create([
+            'room_number' => '203',
+            'hotel_id' => $hotelFranklin->id,
+            'is_smoking' => 1,
+            'max_guests' => 2,
+            'nightly_price' => 130
+        ]);
+
+        $room204 = \App\Room::create([
+            'room_number' => '204',
+            'hotel_id' => $hotelFranklin->id,
+            'is_smoking' => 1,
+            'max_guests' => 2,
+            'nightly_price' => 130
         ]);
 
         // Reservations
@@ -105,7 +149,7 @@ class DatabaseSeeder extends Seeder
         $reservationToday2 = \App\Reservation::create([
             'hotel_id' => $hotelFranklin->id,
             'room_id' => $room201->id,
-            'booked_by_user_id' => $userTim->id,
+            'booked_by_user_id' => $userBob->id,
             'check_in_date' => date('Y-m-d'),
             'check_out_date' => date('Y-m-d', strtotime('+3 day')),
             'custom_reservation_number' => \App\Reservation::generateNewReservationNumber(),
@@ -115,7 +159,7 @@ class DatabaseSeeder extends Seeder
 
         $reservationToday3 = \App\Reservation::create([
             'hotel_id' => $hotelFranklin->id,
-            'room_id' => $room201->id,
+            'room_id' => $room204->id,
             'booked_by_user_id' => $userBob->id,
             'check_in_date' => date('Y-m-d'),
             'check_out_date' => date('Y-m-d', strtotime('+7 day')),
@@ -126,10 +170,10 @@ class DatabaseSeeder extends Seeder
 
         $reservationPast1 = \App\Reservation::create([
             'hotel_id' => $hotelFranklin->id,
-            'room_id' => $room201->id,
+            'room_id' => $room202->id,
             'booked_by_user_id' => $userBob->id,
             'check_in_date' => date('Y-m-d', strtotime('-3 day')),
-            'check_out_date' => date('Y-m-d', strtotime('+7 day')),
+            'check_out_date' => date('Y-m-d', strtotime('+1 day')),
             'custom_reservation_number' => \App\Reservation::generateNewReservationNumber(),
             'total_price' => 456,
             'number_guests' => 2
@@ -140,10 +184,32 @@ class DatabaseSeeder extends Seeder
             'room_id' => $room201->id,
             'booked_by_user_id' => $userTim->id,
             'check_in_date' => date('Y-m-d', strtotime('-1 day')),
-            'check_out_date' => date('Y-m-d', strtotime('+3 day')),
+            'check_out_date' => date('Y-m-d', strtotime('+2 day')),
             'custom_reservation_number' => \App\Reservation::generateNewReservationNumber(),
             'total_price' => 123,
             'number_guests' => 5
+        ]);
+
+        $reservationFuture1 = \App\Reservation::create([
+            'hotel_id' => $hotelFranklin->id,
+            'room_id' => $room203->id,
+            'booked_by_user_id' => $userTim->id,
+            'check_in_date' => date('Y-m-d', strtotime('+2 day')),
+            'check_out_date' => date('Y-m-d', strtotime('+4 day')),
+            'custom_reservation_number' => \App\Reservation::generateNewReservationNumber(),
+            'total_price' => 123,
+            'number_guests' => 2
+        ]);
+
+        $reservationFuture2 = \App\Reservation::create([
+            'hotel_id' => $hotelFranklin->id,
+            'room_id' => $room203->id,
+            'booked_by_user_id' => $userBob->id,
+            'check_in_date' => date('Y-m-d', strtotime('+13 day')),
+            'check_out_date' => date('Y-m-d', strtotime('+19 day')),
+            'custom_reservation_number' => \App\Reservation::generateNewReservationNumber(),
+            'total_price' => 456,
+            'number_guests' => 1
         ]);
     }
 }

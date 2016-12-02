@@ -14,14 +14,13 @@ class HotelAgent extends Model
         'id', 'user_id', 'hotel_id', 'is_admin'
     ];
 
-
     /*
      * Relationships go below
      */
 
     public function user()
     {
-        return $this->belongsTo('App\User', 'id', 'user_id');
+        return $this->belongsTo('App\User', 'user_id', 'id');
     }
 
     public function hotel()

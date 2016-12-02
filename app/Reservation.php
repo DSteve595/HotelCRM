@@ -16,6 +16,14 @@ class Reservation extends Model
         return (strtotime($this->check_out_date) - strtotime($this->check_in_date)) / 60 / 60 / 24;
     }
 
+    public function getStatus() {
+        if ($this->checked_in) {
+            return "Checked in";
+        } else {
+            return "Not checked in";
+        }
+    }
+
     public static function generateNewReservationNumber()
     {
         do {
@@ -45,7 +53,7 @@ class Reservation extends Model
 
     public function hotel()
     {
-        return $this->belongsTo('App\Hotel', 'id', 'hotel_id');
+        return $this->belongsTo('App\Hotel');
     }
 
     public function room()

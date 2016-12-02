@@ -5,7 +5,9 @@
         <div class="col-xs-12">
 
             <h3 class="page-header">
-                New Reservation <small>Update success!</small>
+                New Reservation
+                <br/>
+                <small>Update success!</small>
             </h3>
 
         </div>

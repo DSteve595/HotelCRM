@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Hotel;
 use App\HotelAgent;
 use App\Reservation;
+use App\Room;
 use App\User;
 use App\Utility;
 use Illuminate\Http\Request;
@@ -33,12 +34,22 @@ class HotelAgentController extends Controller
 
     public function futureReservations()
     {
-        return view('hotel-portal.home.reservations.future-reservations.index');
+        $reservations = Reservation::where('hotel_id', auth()->user()->hotelAgent->hotel_id)
+            ->where('check_in_date', '>=', date('Y-m-d'))
+            ->get();
+
+        return view('hotel-portal.home.reservations.future-reservations.index')
+            ->with('reservations', $reservations);
     }
 
     public function archivedReservations()
     {
-        return view('hotel-portal.home.reservations.archived-reservations.index');
+        $reservations = Reservation::where('hotel_id', auth()->user()->hotelAgent->hotel_id)
+            ->where('check_in_date', '<', date('Y-m-d'))
+            ->get();
+	    
+	    return view('hotel-portal.home.reservations.archived-reservations.index')
+            ->with('reservations', $reservations);
     }
 
     public function accountSettings()
@@ -53,6 +64,24 @@ class HotelAgentController extends Controller
         
         return view('hotel-portal.home.reservations.view-reservation.index')
             ->with('reservations', $reservations);
+    }
+
+    public function manageUsers()
+    {
+        $hotelAgents = HotelAgent::where('hotel_id', auth()->user()->hotelAgent->hotel_id)
+            ->get();
+
+        return view('hotel-portal.home.management.manage-users.index')
+            ->with('hotelAgents', $hotelAgents);
+    }
+
+    public function manageRooms()
+    {
+        $rooms = Room::where('hotel_id', auth()->user()->hotelAgent->hotel_id)
+            ->get();
+
+        return view('hotel-portal.home.management.manage-rooms.index')
+            ->with('rooms', $rooms);
     }
     
 }
