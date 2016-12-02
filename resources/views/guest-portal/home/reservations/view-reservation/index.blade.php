@@ -5,7 +5,7 @@
         <div class="col-xs-12">
 
             <h3 class="page-header">
-                Dashboard <small>Today's Activity</small>
+                Reservation <small>View reservation</small>
             </h3>
 
         </div>
@@ -15,11 +15,15 @@
     <div class="row">
 
     </div> <!-- / .row -->
-    @include('guest-portal.home.dashboard.reservations-today-table')
 @endsection
 
 @section('more-js')
     <script type="text/javascript">
+        $(document).ready(function() {
 
+            // TODO: write some js maybe?
+            //<button type="button">do it</button>
+
+        });
     </script>
 @endsection
